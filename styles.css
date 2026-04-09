@@ -1,0 +1,344 @@
+/* ========================================
+   GuavaSure — 3D Immersive Design System
+   ======================================== */
+
+/* --- Base Reset & Smooth Scroll --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: #fff8f2;
+  color: #1e1b15;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Glass Navigation --- */
+.glass-nav {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255,248,242,0.8);
+  border-bottom: 1px solid rgba(148,69,33,0.08);
+  transition: all 0.3s ease;
+}
+.glass-nav.scrolled {
+  background: rgba(255,248,242,0.95);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+
+/* --- Hero Gradients --- */
+.hero-gradient {
+  background: linear-gradient(135deg, #944521 0%, #b35c37 40%, #d4764e 100%);
+}
+.green-gradient {
+  background: linear-gradient(135deg, #426449 0%, #536252 100%);
+}
+.warm-gradient {
+  background: linear-gradient(135deg, #fff8f2 0%, #f5ede3 50%, #eeddd3 100%);
+}
+
+/* --- 3D Perspective Container --- */
+.perspective-container {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+/* --- 3D Card with Tilt --- */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+.card-3d:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 25px 60px rgba(148,69,33,0.15), 0 10px 20px rgba(0,0,0,0.06);
+}
+
+/* --- Glassmorphism Cards --- */
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-card:hover {
+  background: rgba(255,255,255,0.85);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(148,69,33,0.12);
+}
+
+/* --- Ambient Glow Effects --- */
+.ambient-glow {
+  box-shadow: 0 8px 32px rgba(148,69,33,0.15);
+}
+.glow-primary {
+  box-shadow: 0 0 40px rgba(148,69,33,0.2), 0 0 80px rgba(148,69,33,0.1);
+}
+.glow-green {
+  box-shadow: 0 0 40px rgba(66,100,73,0.2), 0 0 80px rgba(66,100,73,0.1);
+}
+
+/* --- Floating Animation --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(148,69,33,0.2); }
+  50% { box-shadow: 0 0 40px rgba(148,69,33,0.4); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+.float { animation: float 6s ease-in-out infinite; }
+.float-slow { animation: floatSlow 8s ease-in-out infinite; }
+.float-delay-1 { animation-delay: -2s; }
+.float-delay-2 { animation-delay: -4s; }
+.pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.blob-morph { animation: blob 8s ease-in-out infinite; }
+
+/* --- Parallax Layers --- */
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.parallax-layer {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children */
+.stagger-children > .reveal:nth-child(1) { transition-delay: 0s; }
+.stagger-children > .reveal:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children > .reveal:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children > .reveal:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children > .reveal:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children > .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+/* --- Image Effects --- */
+.img-3d {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.img-3d:hover {
+  transform: scale(1.03) rotateY(-3deg);
+}
+.img-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.img-3d:hover img {
+  transform: scale(1.08);
+}
+
+/* --- Decorative Blobs --- */
+.deco-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #944521, #b35c37);
+  color: #fff8f2;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-primary:hover::before { transform: translateX(100%); }
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(148,69,33,0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #944521;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 2px solid #944521;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.btn-secondary:hover {
+  background: #944521;
+  color: #fff8f2;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: #25D366;
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.btn-whatsapp:hover {
+  background: #1da851;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(37,211,102,0.3);
+}
+
+/* --- WhatsApp FAB --- */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+}
+.whatsapp-fab svg { width: 30px; height: 30px; fill: white; }
+
+/* --- Section Spacing --- */
+.section-padding { padding: 6rem 1.5rem; }
+@media (min-width: 768px) { .section-padding { padding: 8rem 2rem; } }
+
+/* --- Material Symbols Config --- */
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* --- Counter Animation --- */
+.counter { display: inline-block; }
+
+/* --- Accordion --- */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.accordion-content.open { max-height: 500px; }
+.accordion-icon { transition: transform 0.3s ease; }
+.accordion-icon.rotated { transform: rotate(180deg); }
+
+/* --- Smooth Image Loading --- */
+img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+img.loaded, img[src^="data:"] { opacity: 1; }
+
+/* --- Responsive Nav --- */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.mobile-menu.open { transform: translateX(0); }
+
+/* --- Selection Color --- */
+::selection { background: rgba(148,69,33,0.2); }
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #fff8f2; }
+::-webkit-scrollbar-thumb { background: #d4764e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #944521; }
