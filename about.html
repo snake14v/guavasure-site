@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About GuavaSure | Pet Wellness Platform India</title>
+  <meta name="description" content="Meet Prapanch and the team behind GuavaSure — a pet wellness membership and technology platform built for Indian pet parents."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#944521', container: '#b35c37', light: '#d4764e' },
+            secondary: { DEFAULT: '#536252', light: '#6b8f71' },
+            tertiary: { DEFAULT: '#426449', light: '#5a7d61' },
+            surface: { DEFAULT: '#fff8f2', container: '#f5ede3', dim: '#eeddd3' },
+            onSurface: '#1e1b15',
+            stone: { 900: '#1e1b15', 800: '#2a2520', 700: '#3d3530' },
+            whatsapp: '#25D366',
+          },
+          fontFamily: {
+            headline: ['"Noto Serif"', 'serif'],
+            body: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          borderRadius: {
+            '2xl': '1rem',
+            '3xl': '1.5rem',
+            '4xl': '2rem',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Be Vietnam Pro', sans-serif; background: #fff8f2; color: #1e1b15; }
+    .glass-nav { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: rgba(255,248,242,0.85); }
+    .hero-gradient { background: linear-gradient(135deg, #944521 0%, #b35c37 50%, #d4764e 100%); }
+    .green-gradient { background: linear-gradient(135deg, #426449 0%, #536252 100%); }
+    .ambient-glow { box-shadow: 0 8px 32px rgba(148,69,33,0.15); }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-surface-container">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <span class="material-symbols-rounded text-primary text-3xl">pets</span>
+        <span class="font-headline font-bold text-xl text-onSurface">GuavaSure</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/plans.html" class="text-sm font-medium text-stone-700 hover:text-primary transition">Plans</a>
+        <a href="/how-it-works.html" class="text-sm font-medium text-stone-700 hover:text-primary transition">How It Works</a>
+        <a href="/about.html" class="text-sm font-medium text-stone-700 hover:text-primary transition">About</a>
+        <a href="/blog.html" class="text-sm font-medium text-stone-700 hover:text-primary transition">Blog</a>
+        <a href="/faq.html" class="text-sm font-medium text-stone-700 hover:text-primary transition">FAQ</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/plans.html" class="hidden sm:inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-container transition">
+          Protect Your Pet
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition">
+          <span class="material-symbols-rounded text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-surface-container px-6 pb-4">
+      <div class="flex flex-col gap-3 pt-3">
+        <a href="/plans.html" class="text-sm font-medium py-2">Plans</a>
+        <a href="/how-it-works.html" class="text-sm font-medium py-2">How It Works</a>
+        <a href="/about.html" class="text-sm font-medium py-2">About</a>
+        <a href="/blog.html" class="text-sm font-medium py-2">Blog</a>
+        <a href="/faq.html" class="text-sm font-medium py-2">FAQ</a>
+        <a href="/contact.html" class="text-sm font-medium py-2">Contact</a>
+        <a href="/plans.html" class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold text-center">Protect Your Pet</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="pt-28 pb-16 md:pt-36 md:pb-24 px-6 hero-gradient text-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        We are NOT an insurance company.
+      </h1>
+      <p class="mt-6 text-lg text-white/90 leading-relaxed max-w-2xl mx-auto">
+        We're the friend who got a ₹15,000 bill for a "routine checkup."
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== ORIGIN STORY ========== -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="bg-surface-container rounded-4xl aspect-square flex items-center justify-center order-2 md:order-1">
+        <span class="material-symbols-rounded text-primary/20" style="font-size:8rem">person</span>
+      </div>
+      <div class="order-1 md:order-2">
+        <h2 class="font-headline text-3xl sm:text-4xl font-bold text-onSurface">That friend is me, Prapanch.</h2>
+        <div class="mt-6 space-y-4 text-stone-700 text-sm leading-relaxed">
+          <p>
+            That "routine checkup" became a scan. Became a diagnosis. Became medication. Became a home visit. What I thought was ₹2,000 came to ₹15,000.
+          </p>
+          <p>
+            I'd spent years in New York in insurance tech. I watched companies abroad completely change what pet insurance means. Then I came back to India. The gap between what pet parents here deserve and what actually exists was impossible to ignore.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHO WE BUILT THIS FOR ========== -->
+  <section class="py-20 px-6 bg-surface-container relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold text-onSurface">
+        Who we built this for
+      </h2>
+      <div class="mt-8 space-y-4 text-stone-700 text-base leading-relaxed max-w-2xl mx-auto">
+        <p>
+          The young couple in Bangalore. Entry-level jobs. A rented flat. A dog they love with all their heart.
+        </p>
+        <p>
+          Something goes wrong and now a procedure is ₹35,000. That's a month's rent.
+        </p>
+        <p>
+          They now have two choices: burn through savings or delay their pet's care.
+        </p>
+        <p class="font-semibold text-primary">
+          Neither of those should exist.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OUR APPROACH ========== -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold text-center text-onSurface mb-12">
+        Our Approach
+      </h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-4xl p-8 shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-full hero-gradient flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-rounded text-white text-xl">favorite</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-center text-onSurface">Wellness First</h3>
+          <p class="mt-4 text-sm text-stone-700 leading-relaxed text-center">
+            Care that's proactive, not reactive. Digital health IDs, vaccination tracking, wellness records.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-4xl p-8 shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-full green-gradient flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-rounded text-white text-xl">thumbs_up</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-center text-onSurface">Radically Simple</h3>
+          <p class="mt-4 text-sm text-stone-700 leading-relaxed text-center">
+            3 minutes to sign up. No paperwork rabbit holes. No endless documents.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-4xl p-8 shadow-sm card-hover">
+          <div class="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-rounded text-white text-xl">location_on</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-center text-onSurface">Built for India</h3>
+          <p class="mt-4 text-sm text-stone-700 leading-relaxed text-center">
+            Works at any vet. ₹249/month. WhatsApp support. Made for how Indian pet parents actually live.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSURANCE PARTNER ========== -->
+  <section class="py-20 px-6 bg-surface-container">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold text-onSurface">
+        Our Insurance Partner
+      </h2>
+      <div class="mt-8 bg-white rounded-4xl p-8 shadow-sm">
+        <p class="text-lg font-semibold text-primary mb-4">
+          Insurance, if opted, is provided by Go Digit General Insurance Limited.
+        </p>
+        <div class="border-t border-surface-container pt-6">
+          <p class="text-sm text-stone-700 leading-relaxed">
+            GuavaSure is a wellness membership and technology platform. Insurance, if opted, is provided by Go Digit General Insurance Limited. GuavaSure is not an insurer or broker, and all policy issuance and claims are handled by the insurer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="py-20 px-6 hero-gradient text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-headline text-3xl sm:text-4xl font-bold leading-tight">
+        Your pet is already insured in your heart.<br/>Make it official.
+      </h2>
+      <a href="/plans.html" class="inline-block mt-8 bg-white text-primary px-10 py-4 rounded-full font-semibold hover:bg-surface transition">
+        Protect Your Pet
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-stone-900 text-white py-16 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="material-symbols-rounded text-primary-light text-2xl">pets</span>
+          <span class="font-headline font-bold text-lg">GuavaSure</span>
+        </div>
+        <p class="text-xs text-white/60 leading-relaxed">
+          GuavaSure is a wellness membership and technology platform. Insurance, if opted, is provided by Go Digit General Insurance Limited. GuavaSure is not an insurer or broker, and all policy issuance and claims are handled by the insurer.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Product</h4>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="/plans.html" class="hover:text-white transition">Plans & Pricing</a></li>
+          <li><a href="/how-it-works.html" class="hover:text-white transition">How It Works</a></li>
+          <li><a href="/claims.html" class="hover:text-white transition">Claims</a></li>
+          <li><a href="/faq.html" class="hover:text-white transition">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Learn</h4>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="/blog.html" class="hover:text-white transition">Wellness Blog</a></li>
+          <li><a href="/about.html" class="hover:text-white transition">Our Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="/contact.html" class="hover:text-white transition">Contact Us</a></li>
+          <li><a href="https://instagram.com/guavasure" target="_blank" class="hover:text-white transition">Instagram</a></li>
+          <li><a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20know%20about%20GuavaSure!" target="_blank" class="hover:text-white transition">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+      &copy; 2026 GuavaSure. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ========== WHATSAPP FAB ========== -->
+  <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20know%20about%20GuavaSure!" target="_blank"
+     class="fixed bottom-6 right-6 z-50 bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
