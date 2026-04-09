@@ -3,760 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claims Made Simple | GuavaSure Pet Wellness</title>
-    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    
-    <!-- Material Symbols -->
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:{DEFAULT:'#944521',container:'#b35c37',light:'#d4764e'},secondary:{DEFAULT:'#536252',light:'#6b8f71'},tertiary:{DEFAULT:'#426449',light:'#5a7d61'},surface:{DEFAULT:'#fff8f2',container:'#f5ede3',dim:'#eeddd3'},onSurface:'#1e1b15',stone:{900:'#1e1b15',800:'#2a2520',700:'#3d3530'},whatsapp:'#25D366'},fontFamily:{headline:['"Noto Serif"','serif'],body:['"Be Vietnam Pro"','sans-serif']}}}};</script>
-    
-    <!-- Custom Styles -->
+    <title>Claims Process | Guavasure Pet Insurance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
     <link rel="stylesheet" href="styles.css">
-    
-    <style>
-        /* 3D & Animation Effects */
-        .hero-gradient {
-            background: linear-gradient(135deg, #944521 0%, #d4764e 50%, #536252 100%);
-        }
-        
-        .green-gradient {
-            background: linear-gradient(135deg, #5a7d61 0%, #426449 100%);
-        }
-        
-        .warm-gradient {
-            background: linear-gradient(135deg, #d4764e 0%, #944521 100%);
-        }
-        
-        .glass-nav {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 248, 242, 0.7);
-            border-bottom: 1px solid rgba(74, 69, 65, 0.1);
-        }
-        
-        .glass-card {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 248, 242, 0.8);
-            border: 1px solid rgba(74, 69, 65, 0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            background: rgba(255, 248, 242, 0.95);
-            border-color: rgba(148, 69, 33, 0.3);
-            transform: translateY(-4px);
-        }
-        
-        .card-3d {
-            perspective: 1000px;
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-        
-        .card-3d:hover {
-            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
-        }
-        
-        .img-3d {
-            transform: perspective(1200px) rotateX(2deg);
-            box-shadow: 0 20px 60px rgba(148, 69, 33, 0.15);
-        }
-        
-        .float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .deco-blob {
-            position: absolute;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="rgba(212,118,78,0.1)"/></svg>');
-            opacity: 0.4;
-            filter: blur(40px);
-        }
-        
-        .reveal {
-            opacity: 0;
-            animation: revealUp 0.8s ease-out forwards;
-        }
-        
-        .reveal-left {
-            opacity: 0;
-            animation: revealLeft 0.8s ease-out forwards;
-        }
-        
-        .reveal-right {
-            opacity: 0;
-            animation: revealRight 0.8s ease-out forwards;
-        }
-        
-        @keyframes revealUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#0F2B2B', light: '#153535', dark: '#0a1f1f' },
+                        accent: { DEFAULT: '#C85A30', light: '#E07040', dark: '#A04820' },
+                        cream: { DEFAULT: '#FCFBF8', dark: '#F5F0E8', dim: '#E8E0D4' },
+                        surface: '#1C1A0C'
+                    },
+                    fontFamily: {
+                        headline: ['Merriweather', 'Georgia', 'serif'],
+                        body: ['Lato', 'Helvetica Neue', 'Arial', 'sans-serif']
+                    }
+                }
             }
         }
-        
-        @keyframes revealLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes revealRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .stagger-children > * {
-            animation: inherit;
-        }
-        
-        .stagger-children > :nth-child(1) { animation-delay: 0.1s; }
-        .stagger-children > :nth-child(2) { animation-delay: 0.2s; }
-        .stagger-children > :nth-child(3) { animation-delay: 0.3s; }
-        .stagger-children > :nth-child(4) { animation-delay: 0.4s; }
-        
-        .accordion-trigger {
-            cursor: pointer;
-            padding: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: transparent;
-            border: none;
-            width: 100%;
-            text-align: left;
-            transition: background 0.3s ease;
-        }
-        
-        .accordion-trigger:hover {
-            background: rgba(148, 69, 33, 0.05);
-        }
-        
-        .accordion-trigger.active {
-            background: rgba(148, 69, 33, 0.1);
-        }
-        
-        .accordion-icon {
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .accordion-trigger.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-        
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.25rem;
-        }
-        
-        .accordion-content.active {
-            max-height: 500px;
-            padding: 1.25rem;
-            padding-top: 0;
-        }
-        
-        .accordion-group {
-            border: 1px solid rgba(74, 69, 65, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            background: rgba(255, 248, 242, 0.6);
-        }
-        
-        .whatsapp-fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 56px;
-            height: 56px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 50;
-            text-decoration: none;
-        }
-        
-        .whatsapp-fab:hover {
-            transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-fab span {
-            color: white;
-            font-size: 28px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #5a7d61 0%, #426449 100%);
-            color: white;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(90, 125, 97, 0.3);
-        }
-        
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            padding: 0.875rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-whatsapp:hover {
-            background: #20ba58;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-        }
-        
-        .perspective-container {
-            perspective: 1200px;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            height: 100vh;
-            background: rgba(255, 248, 242, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 5rem 1.5rem 2rem;
-            transition: right 0.3s ease;
-            z-index: 40;
-            overflow-y: auto;
-        }
-        
-        .mobile-menu.active {
-            right: 0;
-        }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    </script>
 </head>
-<body class="font-body bg-surface text-onSurface">
-    <!-- Decorative Blobs -->
-    <div class="deco-blob w-96 h-96 -top-48 -left-48 opacity-30"></div>
-    <div class="deco-blob w-72 h-72 -bottom-32 -right-32 opacity-20"></div>
-    
+<body class="bg-cream font-body text-surface">
     <!-- Navigation -->
-    <nav class="glass-nav fixed top-0 w-full z-30 border-b border-gray-200/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <img src="images/logo.svg" alt="GuavaSure" class="w-8 h-8">
-                    <span class="font-headline font-bold text-lg text-primary hidden sm:inline">GuavaSure</span>
-                </a>
-                
-                <!-- Desktop Navigation -->
-                <div class="nav-links hidden md:flex items-center gap-1">
-                    <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">Home</a>
-                    <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">About</a>
-                    <a href="plans.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">Plans</a>
-                    <a href="how-it-works.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">How It Works</a>
-                    <a href="claims.html" class="px-3 py-2 rounded-lg text-sm font-medium text-primary font-semibold">Claims</a>
-                    <a href="faq.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">FAQ</a>
-                    <a href="blog.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">Blog</a>
-                    <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-black/5 transition-colors">Contact</a>
-                </div>
-                
-                <!-- CTA Button -->
-                <a href="plans.html" class="hidden md:inline-flex btn-primary text-xs">Get Started</a>
-                
-                <!-- Mobile Menu Button -->
-                <button class="menu-toggle" onclick="toggleMobileMenu()">
-                    <span class="material-symbols-rounded text-primary">menu</span>
-                </button>
+    <nav class="glass-nav fixed w-full top-0 z-50 bg-brand/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="images/guavasure-logo-white.svg" alt="Guavasure" class="h-8">
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden text-white">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <div id="nav-menu" class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-white/80 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-white/80 hover:text-white transition">About</a>
+                <a href="index.html#plans" class="text-white/80 hover:text-white transition">Plans</a>
+                <a href="claims.html" class="text-white font-bold">Claims</a>
+                <a href="blog.html" class="text-white/80 hover:text-white transition">Blog</a>
+                <a href="contact.html" class="text-white/80 hover:text-white transition">Contact</a>
+                <a href="index.html#plans" class="btn-accent">Get started</a>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu">
-            <a href="index.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">Home</a>
-            <a href="about.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">About</a>
-            <a href="plans.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">Plans</a>
-            <a href="how-it-works.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">How It Works</a>
-            <a href="claims.html" class="block px-4 py-2 rounded-lg text-primary font-semibold hover:bg-black/5 transition-colors">Claims</a>
-            <a href="faq.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">FAQ</a>
-            <a href="blog.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">Blog</a>
-            <a href="contact.html" class="block px-4 py-2 rounded-lg hover:bg-black/5 transition-colors">Contact</a>
-            <a href="plans.html" class="block mt-4 btn-primary w-full text-center">Get Started</a>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero-gradient pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden mt-16">
-        <div class="perspective-container">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <!-- Left: Text -->
-                    <div class="reveal">
-                        <h1 class="font-headline text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                            Claims Made Simple, Not Stressful
-                        </h1>
-                        <p class="text-white/90 text-lg mb-8 max-w-md">
-                            File a claim in minutes. No network restrictions. Pay your vet, we reimburse you. Simple as that.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="plans.html" class="btn-white">
-                                <span class="material-symbols-rounded text-lg">arrow_forward</span>
-                                Get Started
-                            </a>
-                            <a href="contact.html" class="btn-outline-white">
-                                Contact Support
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Right: Image with 3D Effect -->
-                    <div class="reveal-right hidden md:block perspective-container h-96">
-                        <div class="img-3d rounded-xl overflow-hidden h-full">
-                            <img src="images/claim-process.jpg" alt="Claim Process" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Floating Elements -->
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="glass-card p-4 text-center reveal">
-                        <span class="material-symbols-rounded text-4xl text-primary block mb-2">schedule</span>
-                        <p class="text-sm font-medium">24-48hr Review</p>
-                    </div>
-                    <div class="glass-card p-4 text-center reveal" style="animation-delay: 0.1s">
-                        <span class="material-symbols-rounded text-4xl text-primary block mb-2">payments</span>
-                        <p class="text-sm font-medium">Direct Bank Transfer</p>
-                    </div>
-                    <div class="glass-card p-4 text-center reveal" style="animation-delay: 0.2s">
-                        <span class="material-symbols-rounded text-4xl text-primary block mb-2">verified_user</span>
-                        <p class="text-sm font-medium">No Network Needed</p>
-                    </div>
-                </div>
+    <section class="green-gradient pt-32 pb-20 px-4 text-white relative overflow-hidden">
+        <div class="deco-blob absolute top-10 right-0 w-96 h-96 opacity-20"></div>
+        <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-8 items-center relative z-10">
+            <div class="reveal-left">
+                <h1 class="font-headline text-5xl lg:text-6xl font-bold mb-6">How Claims Work</h1>
+                <p class="text-xl text-white/90">Fast, transparent, and hassle-free reimbursement process backed by Go Digit.</p>
+            </div>
+            <div class="reveal-right hidden lg:block">
+                <img src="images/claim-process.jpg" alt="Claims process" class="w-full rounded-2xl shadow-2xl card-3d">
             </div>
         </div>
     </section>
-    
-    <!-- 4-Step Process -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-surface-container/50">
+
+    <!-- 3 Steps -->
+    <section class="py-20 px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-headline text-4xl md:text-5xl font-bold mb-4">How Your Claim Gets Processed</h2>
-                <p class="text-onSurface/70 text-lg max-w-2xl mx-auto">4 simple steps to get your reimbursement</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+            <h2 class="font-headline text-3xl font-bold text-center mb-12 reveal">Simple 3-step process</h2>
+            <div class="grid md:grid-cols-3 gap-8 stagger-children">
                 <!-- Step 1 -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                        <span class="material-symbols-rounded text-primary text-2xl">local_hospital</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-semibold mb-3">Visit Any Vet</h3>
-                    <p class="text-onSurface/70 text-sm mb-4">Go to your preferred veterinarian. No network restrictions, no pre-authorization needed.</p>
-                    <div class="text-3xl font-bold text-primary/30 font-headline">01</div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-headline font-bold text-xl mx-auto mb-6">1</div>
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">local_hospital</span>
+                    <h3 class="font-headline text-2xl font-bold text-white mb-3">Visit Your Vet</h3>
+                    <p class="text-white/80">Take your pet to any licensed veterinary clinic. Keep your bills and prescription documents safe.</p>
                 </div>
-                
+
                 <!-- Step 2 -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                        <span class="material-symbols-rounded text-primary text-2xl">upload</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-semibold mb-3">Upload Bills</h3>
-                    <p class="text-onSurface/70 text-sm mb-4">Share your vet bills via WhatsApp or our portal. Photo or scan—both work fine.</p>
-                    <div class="text-3xl font-bold text-primary/30 font-headline">02</div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-headline font-bold text-xl mx-auto mb-6">2</div>
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">upload_file</span>
+                    <h3 class="font-headline text-2xl font-bold text-white mb-3">Upload Bills</h3>
+                    <p class="text-white/80">Submit your vet bills and medical records through the Guavasure app or website. Takes 2 minutes.</p>
                 </div>
-                
+
                 <!-- Step 3 -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                        <span class="material-symbols-rounded text-primary text-2xl">fact_check</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-semibold mb-3">We Review</h3>
-                    <p class="text-onSurface/70 text-sm mb-4">We verify your claim within 24-48 hours. Most claims approved without hassle.</p>
-                    <div class="text-3xl font-bold text-primary/30 font-headline">03</div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                        <span class="material-symbols-rounded text-primary text-2xl">account_balance</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-semibold mb-3">Get Reimbursed</h3>
-                    <p class="text-onSurface/70 text-sm mb-4">Money goes directly to your bank account. No middlemen, no delays.</p>
-                    <div class="text-3xl font-bold text-primary/30 font-headline">04</div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-headline font-bold text-xl mx-auto mb-6">3</div>
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">account_balance</span>
+                    <h3 class="font-headline text-2xl font-bold text-white mb-3">Get Reimbursed</h3>
+                    <p class="text-white/80">Receive reimbursement to your bank account. Care Benefits instant; insurance claims in 24-48 hours.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Cashless vs Reimbursement -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12 reveal">
-                <h2 class="font-headline text-4xl md:text-5xl font-bold mb-4">Payment Options</h2>
-                <p class="text-onSurface/70 text-lg">Choose what works best for you</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Cashless (Coming Soon) -->
-                <div class="glass-card p-8 reveal-left relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 px-4 py-2 bg-primary/10 text-primary text-xs font-bold rounded-bl-lg">
-                        COMING SOON
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 mt-4">Cashless Network</h3>
-                    <p class="text-onSurface/70 mb-6">
-                        We're building a network of partner vets. Pay ₹0 at the clinic—we handle the reimbursement directly.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-primary text-lg flex-shrink-0">check_circle</span>
-                            <span>No upfront payment</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-primary text-lg flex-shrink-0">check_circle</span>
-                            <span>Direct vet settlement</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-primary text-lg flex-shrink-0">check_circle</span>
-                            <span>Instant claims processing</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Reimbursement (Available Now) -->
-                <div class="glass-card p-8 reveal-right border-2 border-primary/20">
-                    <div class="absolute top-0 right-0 px-4 py-2 bg-secondary/20 text-secondary text-xs font-bold rounded-bl-lg">
-                        AVAILABLE NOW
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 mt-4">Reimbursement</h3>
-                    <p class="text-onSurface/70 mb-6">
-                        Pay your vet upfront, upload the bills, and we reimburse you to your bank account in 24-48 hours.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-secondary text-lg flex-shrink-0">check_circle</span>
-                            <span>Visit any vet, anytime</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-secondary text-lg flex-shrink-0">check_circle</span>
-                            <span>Direct bank transfer</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-rounded text-secondary text-lg flex-shrink-0">check_circle</span>
-                            <span>24-48 hour processing</span>
-                        </li>
-                    </ul>
-                    <a href="plans.html" class="btn-primary mt-6 w-full justify-center">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Coverage Grid -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-surface-container/50">
+
+    <!-- What's Covered -->
+    <section class="py-20 px-4 bg-cream-dark">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-headline text-4xl md:text-5xl font-bold mb-4">What's Covered</h2>
-                <p class="text-onSurface/70 text-lg">Our comprehensive coverage for your pet's health</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-                <!-- Accidents -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">emergency_home_services</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Accidents & Injuries</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">Fractures, burns, wounds, and emergency care from accidents.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹25,000/year</p>
+            <h2 class="font-headline text-3xl font-bold text-center mb-12 reveal">What's covered</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">warning</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-2">Accidents</h3>
+                    <p class="text-white/70 text-sm">Injuries, falls, poisoning, burns, and unexpected incidents covered end-to-end.</p>
                 </div>
-                
-                <!-- Illnesses -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">sick</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Illnesses</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">Treatment for diseases, infections, allergies, and chronic conditions.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹25,000/year</p>
+
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">medicine</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-2">Illness</h3>
+                    <p class="text-white/70 text-sm">Infections, diseases, and chronic conditions diagnosed after coverage starts.</p>
                 </div>
-                
-                <!-- Surgeries -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">medical_services</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Surgeries</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">Surgical procedures, anesthesia, and post-operative care included.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹25,000/year</p>
+
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">healing</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-2">OPD Care</h3>
+                    <p class="text-white/70 text-sm">Outpatient visits, vaccinations, and preventive checkups covered monthly.</p>
                 </div>
-                
-                <!-- Tick Fever -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">pets</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Tick Fever & Parasites</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">Tick fever, heartworm, flea treatment, and parasite control covered.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹25,000/year</p>
-                </div>
-                
-                <!-- Vaccinations -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">vaccines</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Vaccinations</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">Annual vaccinations, booster shots, and preventive immunizations.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹5,000/year</p>
-                </div>
-                
-                <!-- Diagnostics -->
-                <div class="card-3d glass-card p-6 reveal">
-                    <span class="material-symbols-rounded text-4xl text-primary block mb-4">lab_panel</span>
-                    <h3 class="font-headline text-xl font-semibold mb-2">Diagnostics</h3>
-                    <p class="text-onSurface/70 text-sm mb-3">X-rays, ultrasounds, blood tests, and lab work for diagnosis.</p>
-                    <p class="text-xs text-secondary font-semibold">Up to ₹10,000/year</p>
+
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">security</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-2">Liability</h3>
+                    <p class="text-white/70 text-sm">Third-party bodily injury or property damage caused by your pet.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Claims FAQ Accordion -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12 reveal">
-                <h2 class="font-headline text-4xl md:text-5xl font-bold mb-4">Claims FAQ</h2>
-                <p class="text-onSurface/70 text-lg">Answers to your most common questions</p>
+
+    <!-- Important Info -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="dark-card p-8 border-l-4 border-accent reveal">
+                <h3 class="font-headline text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <span class="material-symbols-rounded">info</span>
+                    Important to know
+                </h3>
+                <ul class="space-y-4 text-white/90">
+                    <li class="flex gap-3">
+                        <span class="material-symbols-rounded text-accent flex-shrink-0">check_circle</span>
+                        <span><strong>Care Benefits and Vaccinations:</strong> Reimbursed instantly (within minutes of uploading bills).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="material-symbols-rounded text-accent flex-shrink-0">check_circle</span>
+                        <span><strong>Insurance Claims:</strong> Reviewed by Go Digit in 24-48 hours. Additional documents may be requested if needed.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="material-symbols-rounded text-accent flex-shrink-0">check_circle</span>
+                        <span><strong>Waiting Periods:</strong> 30 days for illness, 2 years for specific conditions, 4 years for pre-existing conditions.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="material-symbols-rounded text-accent flex-shrink-0">check_circle</span>
+                        <span><strong>Sub-limits & Deductibles:</strong> Check your plan details for annual caps, per-claim limits, and deductible amounts.</span>
+                    </li>
+                </ul>
             </div>
-            
-            <!-- FAQ Accordion Group -->
-            <div class="reveal">
-                <!-- Q1: How long does claims processing take? -->
-                <div class="accordion-group">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        <span class="font-semibold">How long does claims processing take?</span>
-                        <span class="accordion-icon">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </span>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="py-20 px-4 bg-cream-dark">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-headline text-3xl font-bold text-center mb-12 reveal">Frequently asked questions</h2>
+            <div class="space-y-4 accordion-group">
+                <!-- FAQ 1 -->
+                <div class="dark-card reveal">
+                    <button class="accordion-trigger w-full p-6 flex items-center justify-between">
+                        <h3 class="font-headline font-bold text-white text-left">How do I file a claim?</h3>
+                        <span class="material-symbols-rounded accordion-icon">expand_more</span>
                     </button>
-                    <div class="accordion-content">
-                        <p class="text-onSurface/70">
-                            Most claims are processed and approved within 24-48 hours. We review your uploaded bills and confirm eligibility against your plan. Payment to your bank account usually happens within 2-3 business days after approval.
-                        </p>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <p class="text-white/80">Upload your vet bills and medical records through the Guavasure app or website. Ensure all documents are clear and complete. Care Benefits are processed instantly; insurance claims are reviewed within 24-48 hours.</p>
                     </div>
                 </div>
-                
-                <!-- Q2: Can I claim at any vet clinic? -->
-                <div class="accordion-group">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        <span class="font-semibold">Can I claim at any vet clinic?</span>
-                        <span class="accordion-icon">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </span>
+
+                <!-- FAQ 2 -->
+                <div class="dark-card reveal">
+                    <button class="accordion-trigger w-full p-6 flex items-center justify-between">
+                        <h3 class="font-headline font-bold text-white text-left">What if my claim is rejected?</h3>
+                        <span class="material-symbols-rounded accordion-icon">expand_more</span>
                     </button>
-                    <div class="accordion-content">
-                        <p class="text-onSurface/70">
-                            Yes! You can visit any licensed veterinary clinic in India. There are no network restrictions. You pay the vet directly, and we reimburse you to your bank account. This gives you complete freedom to choose your preferred veterinarian.
-                        </p>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <p class="text-white/80">If a claim is rejected, Go Digit provides a detailed reason. Common reasons include waiting period not met, pre-existing condition exclusion, or missing documentation. You can appeal with additional evidence or contact our support team for guidance.</p>
                     </div>
                 </div>
-                
-                <!-- Q3: What documents do I need to upload? -->
-                <div class="accordion-group">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        <span class="font-semibold">What documents do I need to upload?</span>
-                        <span class="accordion-icon">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </span>
+
+                <!-- FAQ 3 -->
+                <div class="dark-card reveal">
+                    <button class="accordion-trigger w-full p-6 flex items-center justify-between">
+                        <h3 class="font-headline font-bold text-white text-left">Can I claim from any vet?</h3>
+                        <span class="material-symbols-rounded accordion-icon">expand_more</span>
                     </button>
-                    <div class="accordion-content">
-                        <p class="text-onSurface/70 mb-3">
-                            You'll need to provide:
-                        </p>
-                        <ul class="list-disc list-inside text-onSurface/70 space-y-2">
-                            <li>Your vet's invoice or receipt</li>
-                            <li>Medical records or prescription (if applicable)</li>
-                            <li>Pet's health report or diagnosis document</li>
-                            <li>Proof of payment (if paid separately)</li>
-                        </ul>
-                        <p class="text-onSurface/70 mt-3">
-                            Photos or scans are fine—we don't need originals.
-                        </p>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <p class="text-white/80">Yes, you can visit any licensed veterinary clinic in India. There are no network restrictions. Submit your bills and records after the visit, and we'll process your reimbursement promptly.</p>
                     </div>
                 </div>
-                
-                <!-- Q4: Is there a limit to how much I can claim? -->
-                <div class="accordion-group">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        <span class="font-semibold">Is there a limit to how much I can claim?</span>
-                        <span class="accordion-icon">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </span>
+
+                <!-- FAQ 4 -->
+                <div class="dark-card reveal">
+                    <button class="accordion-trigger w-full p-6 flex items-center justify-between">
+                        <h3 class="font-headline font-bold text-white text-left">What documents do I need for a claim?</h3>
+                        <span class="material-symbols-rounded accordion-icon">expand_more</span>
                     </button>
-                    <div class="accordion-content">
-                        <p class="text-onSurface/70">
-                            Yes. Most plans have category-based limits. For example, accidents/illnesses/surgeries have annual limits of ₹25,000. Vaccinations cap at ₹5,000/year, and diagnostics at ₹10,000/year. Check your specific plan for exact limits. You can claim multiple times as long as you stay within annual limits.
-                        </p>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <p class="text-white/80">You'll need: vet's bill/invoice, itemized charges breakdown, diagnosis/medical report, prescription details, and bank account information for reimbursement. Keep all original documents safe.</p>
                     </div>
                 </div>
-                
-                <!-- Q5: What happens if my claim is rejected? -->
-                <div class="accordion-group">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        <span class="font-semibold">What happens if my claim is rejected?</span>
-                        <span class="accordion-icon">
-                            <span class="material-symbols-rounded">expand_more</span>
-                        </span>
+
+                <!-- FAQ 5 -->
+                <div class="dark-card reveal">
+                    <button class="accordion-trigger w-full p-6 flex items-center justify-between">
+                        <h3 class="font-headline font-bold text-white text-left">What's the difference between Care Benefits and Insurance?</h3>
+                        <span class="material-symbols-rounded accordion-icon">expand_more</span>
                     </button>
-                    <div class="accordion-content">
-                        <p class="text-onSurface/70 mb-3">
-                            If we can't approve your claim, we'll explain why clearly within 48 hours. Common reasons include:
-                        </p>
-                        <ul class="list-disc list-inside text-onSurface/70 space-y-2">
-                            <li>Condition falls under exclusions</li>
-                            <li>Waiting period hasn't passed yet</li>
-                            <li>Amount exceeds annual limit</li>
-                            <li>Pre-existing condition (in year 1)</li>
-                        </ul>
-                        <p class="text-onSurface/70 mt-3">
-                            We'll work with you to understand your options. Message us on WhatsApp for support.
-                        </p>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <p class="text-white/80">Care Benefits (₹500/month) cover preventive care like checkups and vaccinations, reimbursed instantly. Insurance covers accidents and illnesses above the waiting period, reviewed by Go Digit in 24-48 hours. Both are part of your Guavasure membership.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- CTA Section -->
-    <section class="green-gradient py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center reveal">
-            <h2 class="font-headline text-4xl md:text-5xl font-bold text-white mb-6">Ready to File a Claim?</h2>
-            <p class="text-white/90 text-lg mb-8">
-                Have questions about the claims process? Our team is here to help via WhatsApp—just send us a message.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/919876543210" class="btn-whatsapp text-lg">
-                    <span class="material-symbols-rounded">chat</span>
-                    Chat on WhatsApp
-                </a>
-                <a href="contact.html" class="btn-white text-lg">
-                    <span class="material-symbols-rounded">mail</span>
-                    Contact Us
-                </a>
-            </div>
+
+    <!-- CTA -->
+    <section class="py-16 px-4">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <h2 class="font-headline text-3xl font-bold mb-4 text-brand">Need help with your claim?</h2>
+            <p class="text-lg text-surface/70 mb-8">Our support team is here to guide you through every step of the process.</p>
+            <a href="https://wa.me/919876543210" target="_blank" class="btn-accent inline-block">
+                <span class="material-symbols-rounded inline mr-2">chat</span> Talk to us on WhatsApp
+            </a>
         </div>
     </section>
-    
+
     <!-- Footer -->
-    <footer class="bg-stone-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h4 class="font-headline font-bold mb-4">GuavaSure</h4>
-                    <p class="text-white/70 text-sm">Pet wellness coverage that actually works.</p>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 text-sm text-white/70">
-                        <li><a href="plans.html" class="hover:text-white transition-colors">Plans</a></li>
-                        <li><a href="how-it-works.html" class="hover:text-white transition-colors">How It Works</a></li>
-                        <li><a href="claims.html" class="hover:text-white transition-colors">Claims</a></li>
-                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm text-white/70">
-                        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-4">Connect</h4>
-                    <ul class="space-y-2 text-sm text-white/70">
-                        <li><a href="https://wa.me/919876543210" class="hover:text-white transition-colors flex items-center gap-2">
-                            <span class="material-symbols-rounded text-lg">chat</span>
-                            WhatsApp
-                        </a></li>
-                        <li><a href="mailto:support@guavasure.com" class="hover:text-white transition-colors">Email</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-brand text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="font-headline font-bold text-lg mb-4">Guavasure</h4>
+                <p class="text-white/60 text-sm">Pet Wellness Platform</p>
+                <p class="text-white/40 text-xs mt-2">TALL EXIT VENTURES PRIVATE LIMITED</p>
             </div>
-            <div class="border-t border-white/10 pt-8 text-center text-white/50 text-sm">
-                <p>&copy; 2024 GuavaSure. Pet insurance powered by Go Digit.</p>
+            <div>
+                <h4 class="font-bold mb-4">Product</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="index.html#plans" class="hover:text-white transition">Plans</a></li>
+                    <li><a href="claims.html" class="hover:text-white transition">Claims</a></li>
+                </ul>
             </div>
+            <div>
+                <h4 class="font-bold mb-4">Company</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                    <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8">
+            <p class="text-xs text-white/40 mb-4">Protection benefits are issued by Go Digit General Insurance Limited, a licensed insurance partner. Guavasure facilitates wellness and insurance services but is not an insurance company.</p>
+            <p class="text-xs text-white/40">© 2026 Guavasure. All rights reserved.</p>
         </div>
     </footer>
-    
-    <!-- WhatsApp FAB -->
-    <a href="https://wa.me/919876543210" class="whatsapp-fab" title="Chat on WhatsApp">
-        <span class="material-symbols-rounded">chat_bubble</span>
+
+    <!-- Talk FAB -->
+    <a href="https://wa.me/919876543210" target="_blank" class="talk-fab">
+        <span class="material-symbols-rounded">call</span> Talk to us
     </a>
-    
-    <!-- Firebase SDK -->
+
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -770,52 +288,16 @@
             appId: "1:3843947583:web:efe8f67227b41d76fe0c8a"
         });
     </script>
-    
-    <!-- Scripts -->
     <script src="scripts.js"></script>
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        }
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.remove('active');
+        // Accordion functionality
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                content.classList.toggle('hidden');
+                icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
             });
-        });
-        
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            button.classList.toggle('active');
-            content.classList.toggle('active');
-            
-            // Close other accordions
-            document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-                if (trigger !== button) {
-                    trigger.classList.remove('active');
-                    trigger.nextElementSibling.classList.remove('active');
-                }
-            });
-        }
-        
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('[class*="reveal"]').forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>

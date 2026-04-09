@@ -3,602 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About GuavaSure - Pet Wellness & Insurance</title>
-    <meta name="description" content="Learn how GuavaSure is transforming pet insurance in India. Built by pet parents, for pet parents.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    
-    <!-- Material Symbols Rounded -->
-    
-    <!-- Tailwind CDN -->
+    <title>About Guavasure | Pet Wellness Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            DEFAULT: '#944521',
-                            container: '#b35c37',
-                            light: '#d4764e'
-                        },
-                        secondary: {
-                            DEFAULT: '#536252',
-                            light: '#6b8f71'
-                        },
-                        tertiary: {
-                            DEFAULT: '#426449',
-                            light: '#5a7d61'
-                        },
-                        surface: {
-                            DEFAULT: '#fff8f2',
-                            container: '#f5ede3',
-                            dim: '#eeddd3'
-                        },
-                        onSurface: '#1e1b15',
-                        stone: {
-                            900: '#1e1b15',
-                            800: '#2a2520',
-                            700: '#3d3530'
-                        },
-                        whatsapp: '#25D366'
+                        brand: { DEFAULT: '#0F2B2B', light: '#153535', dark: '#0a1f1f' },
+                        accent: { DEFAULT: '#C85A30', light: '#E07040', dark: '#A04820' },
+                        cream: { DEFAULT: '#FCFBF8', dark: '#F5F0E8', dim: '#E8E0D4' },
+                        surface: '#1C1A0C'
                     },
                     fontFamily: {
-                        headline: ['"Noto Serif"', 'serif'],
-                        body: ['"Be Vietnam Pro"', 'sans-serif']
+                        headline: ['Merriweather', 'Georgia', 'serif'],
+                        body: ['Lato', 'Helvetica Neue', 'Arial', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <style>
-        /* 3D & Glassmorphism Base */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: #fff8f2;
-            color: #1e1b15;
-            overflow-x: hidden;
-        }
-
-        /* Hero Gradient Background */
-        .hero-gradient {
-            background: linear-gradient(135deg, #944521 0%, #d4764e 50%, #536252 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-gradient::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-gradient::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -15%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite 2s;
-        }
-
-        /* Green Gradient */
-        .green-gradient {
-            background: linear-gradient(135deg, #25D366 0%, #1ea652 50%, #0d5f2b 100%);
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-20px) translateX(15px); }
-            50% { transform: translateY(-40px) translateX(0px); }
-            75% { transform: translateY(-20px) translateX(-15px); }
-        }
-
-        /* Glass Navigation */
-        .glass-nav {
-            background: rgba(255, 248, 242, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 69, 33, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        /* Glass Card */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            padding: 32px;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(148, 69, 33, 0.15);
-        }
-
-        /* 3D Card */
-        .perspective-container {
-            perspective: 1200px;
-        }
-
-        .card-3d {
-            background: linear-gradient(135deg, #fff8f2 0%, #f5ede3 100%);
-            border: 2px solid rgba(148, 69, 33, 0.2);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-            transform-style: preserve-3d;
-        }
-
-        .card-3d:hover {
-            transform: rotateX(8deg) rotateY(8deg) translateZ(20px);
-            box-shadow: 0 30px 80px rgba(148, 69, 33, 0.2);
-        }
-
-        /* Image 3D Effect */
-        .img-3d {
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-            transform: translateZ(0);
-        }
-
-        .img-3d:hover {
-            transform: scale(1.03) translateY(-5px);
-        }
-
-        /* Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .reveal-left.active {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .reveal-right.active {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        /* Stagger Children */
-        .stagger-children > * {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .stagger-children.active > * {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .stagger-children.active > :nth-child(1) { transition-delay: 0.1s; }
-        .stagger-children.active > :nth-child(2) { transition-delay: 0.2s; }
-        .stagger-children.active > :nth-child(3) { transition-delay: 0.3s; }
-
-        /* Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #944521 0%, #b35c37 100%);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(148, 69, 33, 0.4);
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn-whatsapp:hover {
-            background: #1ea652;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
-        }
-
-        /* WhatsApp FAB */
-        .whatsapp-fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            cursor: pointer;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 40;
-            text-decoration: none;
-        }
-
-        .whatsapp-fab:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 36px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Lazy Loading */
-        img {
-            loading: lazy;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .glass-card {
-                padding: 20px;
-            }
-
-            .card-3d {
-                padding: 20px;
-            }
-
-            .whatsapp-fab {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .hero-gradient::before {
-                width: 300px;
-                height: 300px;
-            }
-
-            .hero-gradient::after {
-                width: 250px;
-                height: 250px;
-            }
-        }
-
-        /* Icon Styling */
-        .material-symbols-rounded {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-        }
-    </style>
 </head>
-<body>
-    <!-- Glass Navigation -->
-    <nav class="glass-nav">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+<body class="bg-cream font-body text-surface">
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50 bg-brand/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="images/logo.svg" alt="GuavaSure Logo" class="h-10">
-                <span class="font-headline text-2xl font-bold text-primary">GuavaSure</span>
+                <img src="images/guavasure-logo-white.svg" alt="Guavasure" class="h-8">
             </a>
-            
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-onSurface hover:text-primary transition">Home</a>
-                <a href="about.html" class="text-primary font-semibold">About</a>
-                <a href="plans.html" class="text-onSurface hover:text-primary transition">Plans</a>
-                <a href="how-it-works.html" class="text-onSurface hover:text-primary transition">How It Works</a>
-                <a href="claims.html" class="text-onSurface hover:text-primary transition">Claims</a>
-                <a href="faq.html" class="text-onSurface hover:text-primary transition">FAQ</a>
-                <a href="blog.html" class="text-onSurface hover:text-primary transition">Blog</a>
-                <a href="contact.html" class="text-onSurface hover:text-primary transition">Contact</a>
-            </div>
-
-            <a href="plans.html" class="btn-primary hidden md:inline-block">Get Started</a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-onSurface">
+            <button id="mobile-menu-btn" class="lg:hidden text-white">
                 <span class="material-symbols-rounded">menu</span>
             </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-surface-container px-4 py-4 space-y-3">
-            <a href="index.html" class="block text-onSurface hover:text-primary transition">Home</a>
-            <a href="about.html" class="block text-primary font-semibold">About</a>
-            <a href="plans.html" class="block text-onSurface hover:text-primary transition">Plans</a>
-            <a href="how-it-works.html" class="block text-onSurface hover:text-primary transition">How It Works</a>
-            <a href="claims.html" class="block text-onSurface hover:text-primary transition">Claims</a>
-            <a href="faq.html" class="block text-onSurface hover:text-primary transition">FAQ</a>
-            <a href="blog.html" class="block text-onSurface hover:text-primary transition">Blog</a>
-            <a href="contact.html" class="block text-onSurface hover:text-primary transition">Contact</a>
-            <a href="plans.html" class="btn-primary inline-block">Get Started</a>
+            <div id="nav-menu" class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-white/80 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-white font-bold">About</a>
+                <a href="index.html#plans" class="text-white/80 hover:text-white transition">Plans</a>
+                <a href="claims.html" class="text-white/80 hover:text-white transition">Claims</a>
+                <a href="blog.html" class="text-white/80 hover:text-white transition">Blog</a>
+                <a href="contact.html" class="text-white/80 hover:text-white transition">Contact</a>
+                <a href="index.html#plans" class="btn-accent">Get started</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20 md:py-32 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div class="reveal">
-                <h1 class="font-headline text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    We Are NOT an Insurance Company
-                </h1>
-                <p class="text-lg md:text-xl opacity-90 mb-8 font-body">
-                    We're the friend who got a Rs. 15,000 bill for a routine checkup. And we're never letting that happen to you.
-                </p>
-                <div class="flex gap-4 flex-wrap">
-                    <a href="plans.html" class="btn-primary">Explore Plans</a>
-                    <a href="https://wa.me/919876543210?text=Hi%20GuavaSure!%20I%20want%20to%20know%20more%20about%20pet%20insurance." class="btn-whatsapp" target="_blank">Chat on WhatsApp</a>
-                </div>
-            </div>
+    <section class="green-gradient pt-32 pb-20 px-4 text-white relative overflow-hidden">
+        <div class="deco-blob absolute top-10 left-0 w-96 h-96 opacity-20"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+            <h1 class="font-headline text-5xl lg:text-6xl font-bold mb-6">About Guavasure</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">We're a pet wellness platform — wellness comes first; protection is part of what we facilitate.</p>
+        </div>
+    </section>
 
+    <!-- Origin Story -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center reveal-left">
+            <div>
+                <h2 class="font-headline text-4xl font-bold mb-6 text-brand">Built by pet parents who saw the gap</h2>
+                <p class="text-lg text-surface/80 mb-4">When a routine vet visit cost ₹15,000 and left our pet parents scrambling, we realized something was broken. Pet healthcare in India lacked structure, transparency, and affordable protection.</p>
+                <p class="text-lg text-surface/80 mb-6">That's when Guavasure was born — not just as an insurance facilitator, but as a wellness-first platform where every pet parent has access to preventive care, digital health records, and trusted protection.</p>
+                <p class="text-lg text-surface/80">Today, we're building the pet wellness ecosystem India deserves.</p>
+            </div>
             <div class="reveal-right">
-                <div class="perspective-container h-96 md:h-full">
-                    <img src="images/dalmatian.jpg" alt="Happy Dalmatian" class="img-3d w-full h-96 object-cover rounded-2xl shadow-2xl">
+                <img src="images/happy-dog-owner.jpg" alt="Happy pet parent" class="w-full rounded-2xl shadow-2xl card-3d">
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Are -->
+    <section class="py-20 px-4 bg-cream-dark">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="font-headline text-4xl font-bold mb-6 text-brand">What we are, what we're not</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="dark-card p-8 text-left">
+                    <h3 class="font-headline text-2xl font-bold mb-3 text-white">We ARE</h3>
+                    <ul class="space-y-3 text-white/90">
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-accent">check_circle</span>
+                            <span>A wellness membership platform</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-accent">check_circle</span>
+                            <span>Your pet's digital health hub</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-accent">check_circle</span>
+                            <span>A facilitation partner for insurance</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dark-card p-8 text-left">
+                    <h3 class="font-headline text-2xl font-bold mb-3 text-accent">We're NOT</h3>
+                    <ul class="space-y-3 text-white/90">
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-white/40">close</span>
+                            <span>An insurance company</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-white/40">close</span>
+                            <span>A replacement for your vet</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="material-symbols-rounded text-white/40">close</span>
+                            <span>A middleman that slows things down</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-8 text-lg text-brand font-bold">Insurance is provided by Go Digit General Insurance Limited.</p>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-headline text-4xl font-bold text-center mb-12 reveal">What you get with Guavasure</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">favorite</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-3">Wellness Benefits</h3>
+                    <p class="text-white/80 text-sm">Vaccination coverage & ₹500/month care benefit for preventive checkups</p>
+                </div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">badge</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-3">Digital Identity</h3>
+                    <p class="text-white/80 text-sm">Unique nose print ID for your pet — permanent, universal recognition</p>
+                </div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">description</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-3">Health Records</h3>
+                    <p class="text-white/80 text-sm">All vet visits, vaccinations, and medical history in one secure place</p>
+                </div>
+                <div class="dark-card p-8 text-center card-3d reveal">
+                    <span class="material-symbols-rounded text-4xl text-accent mx-auto mb-4 block">shield</span>
+                    <h3 class="font-headline text-xl font-bold text-white mb-3">Insurance Made Easy</h3>
+                    <p class="text-white/80 text-sm">Facilitated coverage by Go Digit — claims processed in 24-48 hours</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Origin Story Section -->
-    <section class="py-20 md:py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="font-headline text-4xl md:text-5xl font-bold text-center mb-16 reveal">
-                How GuavaSure Started
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="reveal-left">
-                    <img src="images/happy-dog-owner.jpg" alt="Happy Pet Parent" class="img-3d w-full rounded-2xl shadow-xl" loading="lazy">
+    <!-- Trust Section -->
+    <section class="py-20 px-4 bg-cream-dark">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="font-headline text-4xl font-bold mb-8">Trusted by Indian pet parents</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="dark-card p-8">
+                    <div class="flex justify-center gap-1 mb-3">
+                        <span class="material-symbols-rounded text-accent text-2xl">star</span>
+                        <span class="material-symbols-rounded text-accent text-2xl">star</span>
+                        <span class="material-symbols-rounded text-accent text-2xl">star</span>
+                        <span class="material-symbols-rounded text-accent text-2xl">star</span>
+                        <span class="material-symbols-rounded text-accent text-2xl" style="opacity: 0.5">star</span>
+                    </div>
+                    <p class="text-white font-bold text-lg">4.1 / 5.0</p>
+                    <p class="text-white/60 text-sm">Trustpilot Ratings</p>
                 </div>
-
-                <div class="reveal-right space-y-6">
-                    <p class="text-lg text-onSurface font-body leading-relaxed">
-                        Prapanch's best friend called one afternoon in panic. Her dog had a routine checkup at the vet. The bill? Rs. 15,000. She didn't have that kind of money lying around. The vet visit wasn't even an emergency—just preventive care.
-                    </p>
-
-                    <p class="text-lg text-onSurface font-body leading-relaxed">
-                        That conversation sparked a realization: <strong>Most pet parents in India have zero coverage</strong>. There's no safety net when their furry family members get sick. The few insurance options that exist are expensive, riddled with clauses, and a nightmare to claim from.
-                    </p>
-
-                    <p class="text-lg text-onSurface font-body leading-relaxed">
-                        So we built GuavaSure. Not as an insurance company trying to maximize claims rejections. But as a platform built by pet parents, for pet parents. We partnered with Go Digit General Insurance Limited—a rock-solid insurer—to underwrite the coverage. We handle the tech, the simplicity, and making sure your pet gets the care they deserve.
-                    </p>
-
-                    <p class="text-lg text-primary font-body font-semibold">
-                        Because every pet parent deserves peace of mind.
-                    </p>
+                <div class="dark-card p-8 flex items-center justify-center">
+                    <div class="text-center">
+                        <img src="images/digit-logo.svg" alt="Go Digit Insurance" class="h-8 mx-auto mb-3">
+                        <p class="text-white/60 text-sm">Protected by Go Digit General Insurance Limited</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Who We Built This For Section -->
-    <section class="py-20 md:py-32 bg-surface-container">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="font-headline text-4xl md:text-5xl font-bold text-center mb-16 reveal">
-                Who We Built This For
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8 stagger-children">
-                <div class="glass-card">
-                    <div class="text-primary text-5xl mb-4">
-                        <span class="material-symbols-rounded text-6xl">pets</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-primary">The First-Time Pet Parent</h3>
-                    <p class="text-onSurface font-body">
-                        You just brought home your first furry friend. You're learning as you go. GuavaSure takes the financial anxiety out of the equation so you can focus on the joy.
-                    </p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="text-primary text-5xl mb-4">
-                        <span class="material-symbols-rounded text-6xl">favorite</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-primary">The Devoted Dog Mom</h3>
-                    <p class="text-onSurface font-body">
-                        Your pet is family. You'd do anything for them, but vet bills shouldn't mean choosing between their health and your savings. We've got your back.
-                    </p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="text-primary text-5xl mb-4">
-                        <span class="material-symbols-rounded text-6xl">verified_user</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-primary">The Practical Planner</h3>
-                    <p class="text-onSurface font-body">
-                        You think ahead. You know the value of insurance. You want transparent pricing, real claims processes, and no hidden clauses. That's us.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Approach Section -->
-    <section class="py-20 md:py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="font-headline text-4xl md:text-5xl font-bold text-center mb-16 reveal">
-                Our Approach
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8 stagger-children perspective-container">
-                <div class="card-3d">
-                    <div class="text-secondary mb-4">
-                        <span class="material-symbols-rounded text-5xl">speed</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-secondary">Tech-First</h3>
-                    <p class="text-onSurface font-body mb-4">
-                        Online signup in 5 minutes. No paperwork. No waiting. Your coverage starts immediately. Claims submitted through our app—processed faster than you'd think.
-                    </p>
-                </div>
-
-                <div class="card-3d">
-                    <div class="text-tertiary mb-4">
-                        <span class="material-symbols-rounded text-5xl">visibility</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-tertiary">Transparent</h3>
-                    <p class="text-onSurface font-body mb-4">
-                        No hidden clauses. No fine print games. Every plan shows exactly what's covered, what's not, and why. We believe you deserve clarity.
-                    </p>
-                </div>
-
-                <div class="card-3d">
-                    <div class="text-primary mb-4">
-                        <span class="material-symbols-rounded text-5xl">favorite</span>
-                    </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 text-primary">Pet-First</h3>
-                    <p class="text-onSurface font-body mb-4">
-                        Works at any vet in India. Emergency coverage 24/7. We don't dictate where you take your pet—you do. Your vet, your choice.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Insurance Partner Section -->
-    <section class="py-20 md:py-32 bg-surface-container">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="glass-card max-w-3xl mx-auto text-center reveal">
-                <h2 class="font-headline text-3xl md:text-4xl font-bold mb-6 text-primary">
-                    Backed by India's Leading Insurer
-                </h2>
-                <p class="text-lg text-onSurface font-body mb-8">
-                    Your coverage is underwritten by <strong>Go Digit General Insurance Limited</strong>, one of India's most trusted and innovative insurance companies. They bring decades of expertise, financial strength, and a commitment to customer-first insurance.
-                </p>
-                <p class="text-onSurface font-body">
-                    We handle the simplicity and tech. They handle the guarantee. That's a partnership built for your peace of mind.
-                </p>
-                <div class="mt-8 text-center">
-                    <p class="text-sm text-onSurface opacity-75">
-                        <strong>Go Digit General Insurance Limited</strong> is licensed by the Insurance Regulatory and Development Authority of India (IRDAI)
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="green-gradient text-white py-20 md:py-32">
-        <div class="max-w-4xl mx-auto px-4 text-center reveal">
-            <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6">
-                Ready to Give Your Pet the Care They Deserve?
-            </h2>
-            <p class="text-lg md:text-xl opacity-90 mb-10 font-body">
-                Join thousands of pet parents who've made GuavaSure their safety net. Coverage starts in minutes.
-            </p>
-            <div class="flex gap-4 flex-wrap justify-center">
-                <a href="plans.html" class="btn-white">
-                    Explore Plans
-                </a>
-                <a href="https://wa.me/919876543210?text=Hi%20GuavaSure!%20I%20want%20to%20know%20more%20about%20pet%20insurance." class="btn-white" target="_blank">
-                    Chat with Us
-                </a>
-            </div>
+    <!-- CTA -->
+    <section class="py-16 px-4 bg-brand text-white">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <h2 class="font-headline text-3xl font-bold mb-6">Ready to give your pet the best?</h2>
+            <a href="index.html#plans" class="btn-accent inline-block">Start your wellness journey</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-stone-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h4 class="font-headline text-lg font-bold mb-4">GuavaSure</h4>
-                    <p class="text-gray-400 font-body">
-                        Pet insurance built by pet parents, for pet parents.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-headline text-lg font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 font-body text-gray-400">
-                        <li><a href="plans.html" class="hover:text-white transition">Plans</a></li>
-                        <li><a href="how-it-works.html" class="hover:text-white transition">How It Works</a></li>
-                        <li><a href="claims.html" class="hover:text-white transition">Claims</a></li>
-                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline text-lg font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 font-body text-gray-400">
-                        <li><a href="about.html" class="hover:text-white transition">About</a></li>
-                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline text-lg font-bold mb-4">Connect</h4>
-                    <ul class="space-y-2 font-body text-gray-400">
-                        <li><a href="https://wa.me/919876543210" class="hover:text-whatsapp transition flex items-center gap-2" target="_blank">
-                            <span class="material-symbols-rounded text-lg">phone</span> WhatsApp
-                        </a></li>
-                        <li><a href="mailto:hello@guavasure.com" class="hover:text-white transition">hello@guavasure.com</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-brand text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h4 class="font-headline font-bold text-lg mb-4">Guavasure</h4>
+                <p class="text-white/60 text-sm">Pet Wellness Platform</p>
+                <p class="text-white/40 text-xs mt-2">TALL EXIT VENTURES PRIVATE LIMITED</p>
             </div>
-
-            <div class="border-t border-gray-700 pt-8">
-                <p class="text-center text-gray-400 font-body text-sm">
-                    &copy; 2024 GuavaSure. All rights reserved. Underwritten by Go Digit General Insurance Limited.
-                </p>
+            <div>
+                <h4 class="font-bold mb-4">Product</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="index.html#plans" class="hover:text-white transition">Plans</a></li>
+                    <li><a href="claims.html" class="hover:text-white transition">Claims</a></li>
+                </ul>
             </div>
+            <div>
+                <h4 class="font-bold mb-4">Company</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                    <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm text-white/60">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8">
+            <p class="text-xs text-white/40 mb-4">Protection benefits are issued by Go Digit General Insurance Limited, a licensed insurance partner. Guavasure facilitates wellness and insurance services but is not an insurance company.</p>
+            <p class="text-xs text-white/40">© 2026 Guavasure. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp FAB -->
-    <a href="https://wa.me/919876543210?text=Hi%20GuavaSure!%20I%20want%20to%20know%20more%20about%20pet%20insurance." class="whatsapp-fab" target="_blank" title="Chat on WhatsApp">
-        <span class="material-symbols-rounded">mail</span>
+    <!-- Talk FAB -->
+    <a href="https://wa.me/919876543210" target="_blank" class="talk-fab">
+        <span class="material-symbols-rounded">call</span> Talk to us
     </a>
 
-    <!-- Firebase SDK -->
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -612,54 +237,6 @@
             appId: "1:3843947583:web:efe8f67227b41d76fe0c8a"
         });
     </script>
-
-    <!-- Custom Scripts -->
     <script src="scripts.js"></script>
-
-    <script>
-        // Scroll Reveal Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all reveal elements
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when link clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.img-3d');
-            parallaxElements.forEach(el => {
-                el.style.transform = `translateY(${scrolled * 0.5}px)`;
-            });
-        });
-    </script>
 </body>
 </html>

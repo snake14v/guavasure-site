@@ -3,397 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GuavaSure - Premium Pet Wellness Membership</title>
+  <title>GuavaSure - Pet Insurance That Cares</title>
+  <meta name="description" content="GuavaSure offers comprehensive pet insurance with wellness packages, digital pet ID, and 24/7 support. Protect your furry friend today.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Tailwind CSS (for utility classes) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: { DEFAULT: '#944521', container: '#b35c37', light: '#d4764e' },
-            secondary: { DEFAULT: '#536252', light: '#6b8f71' },
-            tertiary: { DEFAULT: '#426449', light: '#5a7d61' },
-            surface: { DEFAULT: '#fff8f2', container: '#f5ede3', dim: '#eeddd3' },
-            onSurface: '#1e1b15',
-            stone: { 900: '#1e1b15', 800: '#2a2520', 700: '#3d3530' },
-            whatsapp: '#25D366',
-          },
-          fontFamily: {
-            headline: ['"Noto Serif"', 'serif'],
-            body: ['"Be Vietnam Pro"', 'sans-serif'],
-          },
+            primary: '#0F2B2B',
+            secondary: '#153535',
+            accent: '#C85A30',
+            light: '#FCFBF8',
+            muted: '#F5F0E8',
+          }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-body bg-surface text-onSurface">
+<body>
 
-  <!-- Navigation -->
-  <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2">
-          <img src="images/logo.svg" alt="GuavaSure" class="h-10 w-auto">
-          <span class="font-headline font-bold text-xl text-primary hidden sm:inline">GuavaSure</span>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="text-sm font-medium hover:text-primary transition">Home</a>
-          <a href="about.html" class="text-sm font-medium hover:text-primary transition">About</a>
-          <a href="plans.html" class="text-sm font-medium hover:text-primary transition">Plans</a>
-          <a href="how-it-works.html" class="text-sm font-medium hover:text-primary transition">How It Works</a>
-          <a href="claims.html" class="text-sm font-medium hover:text-primary transition">Claims</a>
-          <a href="faq.html" class="text-sm font-medium hover:text-primary transition">FAQ</a>
-          <a href="blog.html" class="text-sm font-medium hover:text-primary transition">Blog</a>
-          <a href="contact.html" class="text-sm font-medium hover:text-primary transition">Contact</a>
-        </div>
-
-        <!-- Auth & CTA -->
-        <div class="flex items-center gap-4">
-          <div class="auth-btn-area hidden lg:block">
-            <button class="btn-primary" onclick="openAuthModal()">Get Started</button>
-          </div>
-          <!-- Mobile Menu Button -->
-          <button class="lg:hidden text-2xl" onclick="toggleMobileMenu()">
-            <span class="material-symbols-rounded">menu</span>
-          </button>
-        </div>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="glass-nav fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 text-light font-bold text-xl">
+        <img src="./images/guavasure-logo-white.svg" alt="GuavaSure" class="h-8">
+        <span>GuavaSure</span>
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8 text-light text-sm font-medium">
+        <a href="#how-it-works" class="hover:text-accent transition">How It Works</a>
+        <a href="#plans" class="hover:text-accent transition">Plans</a>
+        <a href="#why-us" class="hover:text-accent transition">Why GuavaSure</a>
+        <a href="#faqs" class="hover:text-accent transition">FAQs</a>
       </div>
-
-      <!-- Mobile Navigation Menu -->
-      <div id="mobileMenu" class="hidden lg:hidden pb-6 border-t border-black/10">
-        <a href="index.html" class="block py-2 text-sm font-medium hover:text-primary">Home</a>
-        <a href="about.html" class="block py-2 text-sm font-medium hover:text-primary">About</a>
-        <a href="plans.html" class="block py-2 text-sm font-medium hover:text-primary">Plans</a>
-        <a href="how-it-works.html" class="block py-2 text-sm font-medium hover:text-primary">How It Works</a>
-        <a href="claims.html" class="block py-2 text-sm font-medium hover:text-primary">Claims</a>
-        <a href="faq.html" class="block py-2 text-sm font-medium hover:text-primary">FAQ</a>
-        <a href="blog.html" class="block py-2 text-sm font-medium hover:text-primary">Blog</a>
-        <a href="contact.html" class="block py-2 text-sm font-medium hover:text-primary">Contact</a>
-        <button class="btn-primary w-full mt-4" onclick="openAuthModal()">Get Started</button>
+      
+      <!-- CTA + Menu Button -->
+      <div class="flex items-center gap-4">
+        <a href="#hero" class="hidden md:inline-block btn-accent">Get Quote</a>
+        <button id="menuBtn" class="md:hidden text-light text-2xl">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
       </div>
     </div>
   </nav>
-
-  <!-- Hero Section with 3D Immersive Effects -->
-  <section class="hero-section relative w-full min-h-screen flex items-center pt-20">
-    <div class="hero-gradient absolute inset-0 -z-10"></div>
-
-    <!-- Floating decorative blobs -->
-    <div class="absolute top-10 left-10 w-32 h-32 deco-blob float opacity-30"></div>
-    <div class="absolute top-40 right-20 w-48 h-48 deco-blob float-slow opacity-25"></div>
-    <div class="absolute bottom-20 left-1/4 w-40 h-40 deco-blob float-delay-1 opacity-20"></div>
-    <div class="absolute bottom-10 right-10 w-36 h-36 deco-blob float-delay-2 opacity-25"></div>
-
-    <!-- Mouse glow effect -->
-    <div class="mouse-glow absolute pointer-events-none opacity-0"></div>
-
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Left: Text Content -->
-        <div class="space-y-6 reveal">
-          <h1 class="font-headline text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Your Pet Deserves More Than Just Treatment
-          </h1>
-          <p class="text-lg sm:text-xl text-white/90 max-w-md leading-relaxed">
-            GuavaSure membership gives your furry family access to quality vet care, cashless claims, and wellness benefits at any clinic in India. Starting at just ₹249/month.
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-6">
-            <a href="plans.html" class="btn-primary inline-flex items-center justify-center gap-2">
-              Start Your Journey
-              <span class="material-symbols-rounded text-xl">arrow_forward</span>
-            </a>
-            <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp inline-flex items-center justify-center gap-2">
-              <span class="material-symbols-rounded">chat</span>
-              Talk to Us on WhatsApp
-            </a>
-          </div>
-
-          <!-- Trust Indicators -->
-          <div class="pt-8 space-y-3">
-            <div class="flex items-center gap-3 text-sm font-medium text-white/85">
-              <span class="material-symbols-rounded text-white text-xl">check_circle</span>
-              Works at any vet in India
-            </div>
-            <div class="flex items-center gap-3 text-sm font-medium text-white/85">
-              <span class="material-symbols-rounded text-white text-xl">check_circle</span>
-              Sign up in 3 minutes
-            </div>
-            <div class="flex items-center gap-3 text-sm font-medium text-white/85">
-              <span class="material-symbols-rounded text-white text-xl">check_circle</span>
-              No claims hassle, instant reimbursement
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Hero Image with 3D Effect -->
-        <div class="perspective-container hidden lg:block">
-          <div class="img-3d card-3d relative">
-            <img 
-              src="images/hero-dog.jpg" 
-              alt="Happy golden retriever"
-              loading="lazy"
-              data-parallax="0.3"
-              class="w-full h-auto rounded-3xl shadow-2xl object-cover"
-            >
-            <div class="absolute inset-0 rounded-3xl ambient-glow"></div>
-          </div>
-        </div>
-
-        <!-- Mobile Hero Image -->
-        <div class="lg:hidden">
-          <img 
-            src="images/hero-dog.jpg" 
-            alt="Happy golden retriever"
-            loading="lazy"
-            class="w-full h-auto rounded-3xl shadow-xl object-cover"
-          >
-        </div>
-      </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-screen bg-primary/95 backdrop-blur-md z-40 pt-20 px-6">
+    <button id="menuClose" class="absolute top-6 right-6 text-light text-2xl">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="flex flex-col gap-6 text-light text-lg font-medium">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#plans">Plans</a>
+      <a href="#why-us">Why GuavaSure</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#hero" class="btn-accent inline-block text-center">Get Quote</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Trust Bar Section -->
-  <section class="py-12 bg-surface-container relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        <!-- Badge 1 -->
-        <div class="reveal flex flex-col items-center text-center">
-          <span class="material-symbols-rounded text-4xl text-secondary mb-3">local_hospital</span>
-          <p class="font-medium text-sm text-stone-700">Works at Any Vet</p>
-        </div>
-
-        <!-- Badge 2 -->
-        <div class="reveal flex flex-col items-center text-center" style="animation-delay: 100ms;">
-          <span class="material-symbols-rounded text-4xl text-secondary mb-3">flash_on</span>
-          <p class="font-medium text-sm text-stone-700">3-Minute Sign Up</p>
-        </div>
-
-        <!-- Badge 3 -->
-        <div class="reveal flex flex-col items-center text-center" style="animation-delay: 200ms;">
-          <span class="material-symbols-rounded text-4xl text-secondary mb-3">currency_rupee</span>
-          <p class="font-medium text-sm text-stone-700">₹249/Month</p>
-        </div>
-
-        <!-- Badge 4 -->
-        <div class="reveal flex flex-col items-center text-center" style="animation-delay: 300ms;">
-          <span class="material-symbols-rounded text-4xl text-secondary mb-3">verified_user</span>
-          <p class="font-medium text-sm text-stone-700">Go Digit Backed</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Problem Stats Section -->
-  <section class="py-24 bg-surface">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-headline text-4xl sm:text-5xl font-bold text-primary mb-4 reveal">
-          The Reality of Pet Healthcare in India
-        </h2>
-        <p class="text-lg text-stone-700 max-w-2xl mx-auto reveal">
-          Pet parents face unexpected costs and emotional stress. GuavaSure changes that.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Stat 1 -->
-        <div class="card-3d glass-card p-8 text-center reveal">
-          <div class="text-5xl font-bold text-primary mb-4">
-            <span class="counter" data-target="15000" data-prefix="₹">0</span>
-            <span class="text-2xl">+</span>
-          </div>
-          <p class="text-stone-700 font-medium">Average Emergency Bill</p>
-          <p class="text-sm text-stone-600 mt-2">One accident shouldn't bankrupt your savings</p>
-        </div>
-
-        <!-- Stat 2 -->
-        <div class="card-3d glass-card p-8 text-center reveal" style="animation-delay: 100ms;">
-          <div class="text-5xl font-bold text-secondary mb-4">
-            <span class="counter" data-target="73" data-suffix="%">0</span>
-          </div>
-          <p class="text-stone-700 font-medium">Pet Parents Have No Coverage</p>
-          <p class="text-sm text-stone-600 mt-2">Most pets are just one visit away from financial stress</p>
-        </div>
-
-        <!-- Stat 3 -->
-        <div class="card-3d glass-card p-8 text-center reveal" style="animation-delay: 200ms;">
-          <div class="text-5xl font-bold text-tertiary mb-4">
-            <span class="counter" data-target="1" data-suffix=" in 3">0</span>
-          </div>
-          <p class="text-stone-700 font-medium">Pets Need Emergency Care Yearly</p>
-          <p class="text-sm text-stone-600 mt-2">The odds are against you without a safety net</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works - 3 Steps -->
-  <section class="py-24 bg-surface-container">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-headline text-4xl sm:text-5xl font-bold text-primary mb-4 reveal">
-          Getting Started is Ridiculously Simple
-        </h2>
-        <p class="text-lg text-stone-700 max-w-2xl mx-auto reveal">
-          3 steps to peace of mind
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Step 1 -->
-        <div class="glass-card p-8 relative reveal stagger-children">
-          <div class="absolute -top-6 -right-6 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-headline font-bold text-2xl shadow-lg">
-            1
-          </div>
-          <span class="material-symbols-rounded text-5xl text-primary mb-6 block">pets</span>
-          <h3 class="font-headline text-2xl font-bold text-primary mb-3">Tell Us About Your Pet</h3>
-          <p class="text-stone-700">Share your pet's details and health history. Takes less than a minute.</p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="glass-card p-8 relative reveal stagger-children" style="animation-delay: 100ms;">
-          <div class="absolute -top-6 -right-6 w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center font-headline font-bold text-2xl shadow-lg">
-            2
-          </div>
-          <span class="material-symbols-rounded text-5xl text-secondary mb-6 block">card_membership</span>
-          <h3 class="font-headline text-2xl font-bold text-secondary mb-3">Choose Your Plan</h3>
-          <p class="text-stone-700">Pick the GuavaSure membership that fits your needs and budget.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="glass-card p-8 relative reveal stagger-children" style="animation-delay: 200ms;">
-          <div class="absolute -top-6 -right-6 w-16 h-16 bg-tertiary text-white rounded-full flex items-center justify-center font-headline font-bold text-2xl shadow-lg">
-            3
-          </div>
-          <span class="material-symbols-rounded text-5xl text-tertiary mb-6 block">verified</span>
-          <h3 class="font-headline text-2xl font-bold text-tertiary mb-3">You're Covered</h3>
-          <p class="text-stone-700">Instant activation. Use your membership at any RCVS-registered vet.</p>
-        </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="how-it-works.html" class="btn-primary inline-flex items-center gap-2 reveal">
-          Learn More
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Plan Card -->
-  <section class="py-24 bg-surface">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero-section relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <!-- Hero Background Gradient -->
+    <div class="absolute inset-0 hero-gradient -z-10"></div>
+    
+    <!-- Decorative Blobs -->
+    <div class="absolute top-20 left-10 w-96 h-96 deco-blob rounded-full bg-accent opacity-5 -z-5"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 deco-blob rounded-full bg-accent opacity-5 -z-5"></div>
+    
+    <!-- Mouse Glow -->
+    <div class="mouse-glow absolute w-96 h-96 rounded-full bg-gradient-to-r from-accent/30 to-transparent blur-3xl pointer-events-none -z-5" style="filter: blur(120px);"></div>
+    
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left: Content -->
         <div class="reveal-left">
-          <h2 class="font-headline text-4xl font-bold text-primary mb-6">
-            GuavaSure Essential
-          </h2>
-          <p class="text-lg text-stone-700 mb-8">
-            Our most popular plan. Perfect for pet parents who want quality vet care without the worry.
+          <div class="inline-block mb-4 px-4 py-2 bg-accent/20 rounded-full">
+            <span class="text-accent font-semibold text-sm">Trusted by 50,000+ Pet Parents</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-light mb-6 leading-tight">
+            Pet Insurance <span class="text-accent">That Cares</span>
+          </h1>
+          <p class="text-lg text-light/80 mb-8 leading-relaxed">
+            Comprehensive coverage for your furry friend. Wellness packages, 24/7 support, and digital pet ID — all in one place.
           </p>
-
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">Cashless Claims</p>
-                <p class="text-sm text-stone-600">Direct settlements with 500+ partner vets</p>
+          
+          <!-- Phone Signup Form -->
+          <div class="mb-8">
+            <form id="phoneSignupForm" class="phone-input-group">
+              <span class="prefix">+91</span>
+              <input type="tel" id="phoneInput" placeholder="Enter your phone" required pattern="[0-9]{10}">
+              <button type="submit" class="btn-accent">Get Quote</button>
+            </form>
+            <p class="text-xs text-light/60 mt-3">No spam. Free quote in 2 minutes.</p>
+            <div class="auth-error text-red-400 text-sm mt-2" style="display: none;"></div>
+          </div>
+          
+          <!-- Trust Badges -->
+          <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+              <img src="./images/trustpilot-badge.png" alt="Trustpilot" class="h-12">
+              <div class="text-sm">
+                <div class="trustpilot-stars font-bold">★★★★★</div>
+                <div class="text-light/70 text-xs">4.1 / 5.0 Rating</div>
               </div>
             </div>
-
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">Wellness Benefits</p>
-                <p class="text-sm text-stone-600">Annual checkups, vaccinations, and more</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">24/7 Pet Support</p>
-                <p class="text-sm text-stone-600">Expert advice whenever you need it</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">Emergency Coverage</p>
-                <p class="text-sm text-stone-600">Up to ₹1,00,000 annual benefit</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">Preventive Care</p>
-                <p class="text-sm text-stone-600">Nutrition guides and behavior tips</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <span class="material-symbols-rounded text-green-600 text-2xl flex-shrink-0">check_circle</span>
-              <div>
-                <p class="font-medium text-stone-800">Dedicated Account Manager</p>
-                <p class="text-sm text-stone-600">Personalized support for your pet</p>
-              </div>
+            <div class="text-light/60 text-sm">
+              <span class="font-semibold text-accent">DIGIT</span> Partner
             </div>
           </div>
-
-          <div class="text-4xl font-bold text-primary mb-6">
-            ₹249 <span class="text-lg text-stone-600 font-normal">/month</span>
-          </div>
-
-          <a href="plans.html" class="btn-primary inline-flex items-center gap-2">
-            View All Plans
-            <span class="material-symbols-rounded">arrow_forward</span>
-          </a>
         </div>
-
-        <div class="reveal-right">
-          <div class="card-3d glass-card p-12 relative">
-            <div class="absolute inset-0 rounded-3xl glow-primary opacity-0 hover:opacity-30 transition duration-500"></div>
-            <img 
-              src="images/happy-dog-owner.jpg" 
-              alt="Happy pet owner with dog"
-              loading="lazy"
-              class="w-full rounded-2xl mb-6"
-            >
-            <div class="space-y-4">
-              <div class="bg-surface rounded-lg p-4 flex items-center gap-3">
-                <span class="material-symbols-rounded text-primary">pets</span>
-                <div>
-                  <p class="text-sm font-medium text-stone-700">For Dogs & Cats</p>
-                  <p class="text-xs text-stone-600">Age 3 months - 10 years</p>
-                </div>
-              </div>
-              <div class="bg-surface rounded-lg p-4 flex items-center gap-3">
-                <span class="material-symbols-rounded text-secondary">calendar_today</span>
-                <div>
-                  <p class="text-sm font-medium text-stone-700">Month to Month</p>
-                  <p class="text-xs text-stone-600">Cancel anytime, no lock-in</p>
-                </div>
-              </div>
-              <div class="bg-surface rounded-lg p-4 flex items-center gap-3">
-                <span class="material-symbols-rounded text-tertiary">support_agent</span>
-                <div>
-                  <p class="text-sm font-medium text-stone-700">24/7 Support</p>
-                  <p class="text-xs text-stone-600">Always there when you need help</p>
-                </div>
-              </div>
+        
+        <!-- Right: Hero Image with 3D Effect -->
+        <div class="reveal-right hidden md:block">
+          <div class="perspective-container">
+            <div class="img-3d">
+              <img src="./images/hero-main.jpg" alt="Happy dog with owner" class="rounded-3xl shadow-2xl">
             </div>
           </div>
         </div>
@@ -401,372 +146,663 @@
     </div>
   </section>
 
-  <!-- Founder Section -->
-  <section class="py-24 bg-surface-container">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="reveal-left order-2 lg:order-1">
-          <img 
-            src="images/happy-dog-owner.jpg" 
-            alt="Prapanch founder"
-            loading="lazy"
-            class="w-full rounded-2xl shadow-xl"
-          >
+  <!-- ===== FEATURES SECTION ===== -->
+  <section id="features" class="section-padding bg-light relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Wellness Packages</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">8 comprehensive coverage tiers designed for every pet and budget</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Basic Package -->
+        <div class="glass-card card-3d p-6 reveal">
+          <div class="feature-icon mb-4">
+            <span class="material-symbols-rounded text-accent">local_hospital</span>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-2">Basic Care</h3>
+          <p class="text-gray-600 text-sm mb-4">Essential illness & injury coverage</p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Vet visits</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Surgery</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Tests</li>
+          </ul>
+          <div class="mt-6 pt-4 border-t">
+            <span class="text-2xl font-bold text-accent">₹299</span>
+            <span class="text-gray-600 text-sm">/month</span>
+          </div>
         </div>
+        
+        <!-- Standard Package -->
+        <div class="glass-card card-3d p-6 reveal">
+          <div class="feature-icon mb-4">
+            <span class="material-symbols-rounded text-accent">favorite</span>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-2">Standard Plus</h3>
+          <p class="text-gray-600 text-sm mb-4">+ Wellness & preventive care</p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> All Basic</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Vaccinations</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Annual checkup</li>
+          </ul>
+          <div class="mt-6 pt-4 border-t">
+            <span class="text-2xl font-bold text-accent">₹499</span>
+            <span class="text-gray-600 text-sm">/month</span>
+          </div>
+        </div>
+        
+        <!-- Premium Package -->
+        <div class="glass-card card-3d p-6 reveal border-2 border-accent relative">
+          <div class="absolute -top-3 left-4 bg-accent text-white px-3 py-1 text-xs font-bold rounded-full">Popular</div>
+          <div class="feature-icon mb-4 bg-accent/20">
+            <span class="material-symbols-rounded text-accent">star</span>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-2">Premium Care</h3>
+          <p class="text-gray-600 text-sm mb-4">Complete coverage + dental</p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> All Standard</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Dental care</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Higher limits</li>
+          </ul>
+          <div class="mt-6 pt-4 border-t">
+            <span class="text-2xl font-bold text-accent">₹799</span>
+            <span class="text-gray-600 text-sm">/month</span>
+          </div>
+        </div>
+        
+        <!-- Elite Package -->
+        <div class="glass-card card-3d p-6 reveal">
+          <div class="feature-icon mb-4">
+            <span class="material-symbols-rounded text-accent">shield_star</span>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-2">Elite Plus</h3>
+          <p class="text-gray-600 text-sm mb-4">Maximum protection + behavior</p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> All Premium</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Behavior training</li>
+            <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> 24/7 support</li>
+          </ul>
+          <div class="mt-6 pt-4 border-t">
+            <span class="text-2xl font-bold text-accent">₹1,099</span>
+            <span class="text-gray-600 text-sm">/month</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="reveal-right order-1 lg:order-2 space-y-6">
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="section-padding hero-gradient relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-light mb-4">How GuavaSure Works</h2>
+        <p class="text-lg text-light/80 max-w-2xl mx-auto">Get insured in 3 simple steps</p>
+      </div>
+      
+      <div class="space-y-16">
+        <!-- Step 1 -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal-left">
+            <div class="inline-block mb-4 text-5xl font-bold text-accent">01</div>
+            <h3 class="text-3xl font-bold text-light mb-4">Get Your Free Quote</h3>
+            <p class="text-light/80 mb-6">Enter your pet's details and age. Our AI-powered system instantly calculates your personalized premium based on breed, location, and coverage.</p>
+            <ul class="space-y-3 text-light/70">
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Takes 2 minutes</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> No medical exam needed</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Instant approval</li>
+            </ul>
+          </div>
+          <div class="reveal-right hidden md:block">
+            <div class="img-3d">
+              <img src="./images/puppy-playful.jpg" alt="Playful puppy" class="rounded-3xl">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal-left hidden md:block order-2 md:order-1">
+            <div class="img-3d">
+              <img src="./images/golden-retriever.jpg" alt="Golden retriever" class="rounded-3xl">
+            </div>
+          </div>
+          <div class="reveal-right order-1 md:order-2">
+            <div class="inline-block mb-4 text-5xl font-bold text-accent">02</div>
+            <h3 class="text-3xl font-bold text-light mb-4">Choose Your Coverage</h3>
+            <p class="text-light/80 mb-6">Select from 8 wellness packages. Customize coverage limits, deductibles, and add-ons to match your pet's needs and budget.</p>
+            <ul class="space-y-3 text-light/70">
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Flexible plans</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> No hidden charges</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Easy upgrades</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal-left">
+            <div class="inline-block mb-4 text-5xl font-bold text-accent">03</div>
+            <h3 class="text-3xl font-bold text-light mb-4">Instant Coverage Starts</h3>
+            <p class="text-light/80 mb-6">Pay via Razorpay or UPI. Get your policy immediately and access your digital pet ID. Start claiming in 24 hours.</p>
+            <ul class="space-y-3 text-light/70">
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Paperless process</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> Digital ID card</li>
+              <li class="flex items-center gap-3"><span class="material-symbols-rounded text-accent">check_circle</span> 24/7 claim support</li>
+            </ul>
+          </div>
+          <div class="reveal-right hidden md:block">
+            <div class="img-3d">
+              <img src="./images/hero-dog.jpg" alt="Happy insured pet" class="rounded-3xl">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLANS SECTION ===== -->
+  <section id="plans" class="section-padding bg-muted relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Compare Plans</h2>
+        <p class="text-lg text-gray-600">Choose what's right for your pet</p>
+      </div>
+      
+      <!-- Plan Selector Tabs -->
+      <div class="flex justify-center gap-4 mb-12 flex-wrap reveal">
+        <button class="plan-tab px-6 py-2 rounded-full font-semibold border-2 border-accent bg-accent text-white transition" data-plan="basic">
+          Basic
+        </button>
+        <button class="plan-tab px-6 py-2 rounded-full font-semibold border-2 border-gray-400 text-primary transition hover:border-accent" data-plan="standard">
+          Standard
+        </button>
+        <button class="plan-tab px-6 py-2 rounded-full font-semibold border-2 border-gray-400 text-primary transition hover:border-accent" data-plan="premium">
+          Premium
+        </button>
+        <button class="plan-tab px-6 py-2 rounded-full font-semibold border-2 border-gray-400 text-primary transition hover:border-accent" data-plan="elite">
+          Elite
+        </button>
+      </div>
+      
+      <!-- Featured Plan Card -->
+      <div class="glass-card card-3d p-12 reveal">
+        <div class="grid md:grid-cols-3 gap-8">
           <div>
-            <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Our Story
-            </span>
-            <h2 class="font-headline text-4xl sm:text-5xl font-bold text-primary">
-              Built by a Pet Parent, Not a Corporation
-            </h2>
+            <h3 class="text-2xl font-bold text-primary mb-2">Premium Care</h3>
+            <p class="text-gray-600 mb-6">Most popular choice</p>
+            <div>
+              <span class="text-5xl font-bold text-accent">₹799</span>
+              <span class="text-gray-600">/month</span>
+            </div>
           </div>
+          
+          <div>
+            <h4 class="font-bold text-primary mb-4">Coverage Includes:</h4>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Illness & injury</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Surgeries</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Diagnostic tests</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Vaccinations</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Annual checkup</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Dental care</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-primary mb-4">Benefits:</h4>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Up to ₹10 lakh/year</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> No waiting period</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Cashless claims</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Digital Pet ID</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> 24/7 support</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-rounded text-accent text-lg">check</span> Free wellness calls</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-8 border-t flex flex-col md:flex-row gap-4">
+          <a href="#hero" class="btn-accent flex-1 text-center">Get This Plan</a>
+          <button class="btn-outline flex-1">Compare All Plans</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <p class="text-lg text-stone-700 leading-relaxed">
-            Prapanch created GuavaSure after watching helpless pet parents struggle with unexpected vet bills and claim denials. As a dog parent himself, he knew there had to be a better way — a membership that actually cares about your pet's health, not just profits.
-          </p>
-
-          <p class="text-lg text-stone-700 leading-relaxed">
-            GuavaSure isn't insurance company politics. It's a wellness membership built on the simple belief that every pet deserves access to quality care, without the financial fear. Backed by Go Digit General Insurance Limited, but designed by someone who truly understands the bond between you and your pet.
-          </p>
-
-          <div class="pt-4">
-            <a href="about.html" class="btn-primary inline-flex items-center gap-2">
-              Read Our Full Story
-              <span class="material-symbols-rounded">arrow_forward</span>
-            </a>
+  <!-- ===== WHY GUAVASURE ===== -->
+  <section id="why-us" class="section-padding hero-gradient relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-light mb-4">Why Choose GuavaSure</h2>
+        <p class="text-lg text-light/80">The real difference for your pet's health</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal-left">
+          <h3 class="text-3xl font-bold text-light mb-8">We Actually Care</h3>
+          
+          <div class="space-y-6">
+            <div class="dark-card p-6">
+              <div class="flex gap-4">
+                <span class="material-symbols-rounded text-accent text-3xl flex-shrink-0">favorite</span>
+                <div>
+                  <h4 class="font-bold text-light mb-2">No Breed Exclusions</h4>
+                  <p class="text-light/70 text-sm">Every breed matters. We insure everything from tiny Chihuahuas to giant Saint Bernards.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dark-card p-6">
+              <div class="flex gap-4">
+                <span class="material-symbols-rounded text-accent text-3xl flex-shrink-0">schedule</span>
+                <div>
+                  <h4 class="font-bold text-light mb-2">Claims in 24 Hours</h4>
+                  <p class="text-light/70 text-sm">Upload docs via app. Get approval & reimbursement within 24 hours, not 24 days.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dark-card p-6">
+              <div class="flex gap-4">
+                <span class="material-symbols-rounded text-accent text-3xl flex-shrink-0">phone_in_talk</span>
+                <div>
+                  <h4 class="font-bold text-light mb-2">WhatsApp Support</h4>
+                  <p class="text-light/70 text-sm">Just WhatsApp us. Our vets respond in minutes, not hours. Real people, not bots.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="dark-card p-6">
+              <div class="flex gap-4">
+                <span class="material-symbols-rounded text-accent text-3xl flex-shrink-0">verified</span>
+                <div>
+                  <h4 class="font-bold text-light mb-2">Zero Hidden Fees</h4>
+                  <p class="text-light/70 text-sm">What you see is what you pay. No surprise charges, no fine print tricks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reveal-right hidden md:block">
+          <div class="img-3d">
+            <img src="./images/dog-family.jpg" alt="Pet family" class="rounded-3xl">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Blog Preview Section -->
-  <section class="py-24 bg-surface">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-headline text-4xl sm:text-5xl font-bold text-primary mb-4 reveal">
-          From the GuavaSure Blog
-        </h2>
-        <p class="text-lg text-stone-700 max-w-2xl mx-auto reveal">
-          Pet health tips, wellness guides, and stories from our community
-        </p>
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="section-padding bg-light relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Loved by Pet Parents</h2>
+        <p class="text-lg text-gray-600">Real stories from real customers</p>
       </div>
-
+      
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Blog Card 1 -->
-        <div class="card-3d glass-card overflow-hidden reveal group">
-          <div class="overflow-hidden h-48">
-            <img 
-              src="images/puppy-playful.jpg" 
-              alt="Playful puppy"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-            >
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-xs font-medium text-primary">wellness</span>
-              <span class="text-xs text-stone-600">5 min read</span>
+        <!-- Testimonial 1 -->
+        <div class="glass-card card-3d p-8 reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">A</div>
+            <div>
+              <h4 class="font-bold text-primary">Arun & Max</h4>
+              <p class="text-xs text-gray-600">Golden Retriever, Delhi</p>
             </div>
-            <h3 class="font-headline text-xl font-bold text-primary mb-3">
-              Puppy Care 101: Getting Your New Friend Ready for Life
-            </h3>
-            <p class="text-sm text-stone-700 mb-4">
-              Essential tips for the first 6 months with your new puppy
-            </p>
-            <a href="blog.html" class="text-primary font-medium flex items-center gap-2 hover:gap-3 transition">
-              Read Article
-              <span class="material-symbols-rounded text-lg">arrow_forward</span>
-            </a>
+          </div>
+          <div class="trustpilot-stars mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            "When Max had to have emergency surgery, GuavaSure processed our claim in 12 hours. No hassle, no back-and-forth. That's peace of mind."
+          </p>
+          <div class="mt-4 pt-4 border-t text-xs text-gray-600">
+            Surgery Claim: ₹85,000 reimbursed
           </div>
         </div>
-
-        <!-- Blog Card 2 -->
-        <div class="card-3d glass-card overflow-hidden reveal group" style="animation-delay: 100ms;">
-          <div class="overflow-hidden h-48">
-            <img 
-              src="images/golden-retriever.jpg" 
-              alt="Golden retriever"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-            >
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-xs font-medium text-secondary">nutrition</span>
-              <span class="text-xs text-stone-600">7 min read</span>
+        
+        <!-- Testimonial 2 -->
+        <div class="glass-card card-3d p-8 reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">P</div>
+            <div>
+              <h4 class="font-bold text-primary">Priya & Bella</h4>
+              <p class="text-xs text-gray-600">Pug, Bangalore</p>
             </div>
-            <h3 class="font-headline text-xl font-bold text-primary mb-3">
-              The Complete Guide to Pet Nutrition
-            </h3>
-            <p class="text-sm text-stone-700 mb-4">
-              What your pet needs to eat for optimal health and energy
-            </p>
-            <a href="blog.html" class="text-primary font-medium flex items-center gap-2 hover:gap-3 transition">
-              Read Article
-              <span class="material-symbols-rounded text-lg">arrow_forward</span>
-            </a>
+          </div>
+          <div class="trustpilot-stars mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            "Finally, a pet insurance that doesn't exclude breeds or pre-existing conditions. Bella has asthma and she's covered. That's rare!"
+          </p>
+          <div class="mt-4 pt-4 border-t text-xs text-gray-600">
+            Wellness Plan: Bella's treatment covered
           </div>
         </div>
-
-        <!-- Blog Card 3 -->
-        <div class="card-3d glass-card overflow-hidden reveal group" style="animation-delay: 200ms;">
-          <div class="overflow-hidden h-48">
-            <img 
-              src="images/pet-wellness.jpg" 
-              alt="Pet wellness"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-            >
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-xs font-medium text-tertiary">health</span>
-              <span class="text-xs text-stone-600">6 min read</span>
+        
+        <!-- Testimonial 3 -->
+        <div class="glass-card card-3d p-8 reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">R</div>
+            <div>
+              <h4 class="font-bold text-primary">Rajesh & Kalu</h4>
+              <p class="text-xs text-gray-600">Street Dog (Rescued), Mumbai</p>
             </div>
-            <h3 class="font-headline text-xl font-bold text-primary mb-3">
-              Emergency Pet Care: When Every Second Counts
-            </h3>
-            <p class="text-sm text-stone-700 mb-4">
-              How to recognize and respond to pet emergencies
-            </p>
-            <a href="blog.html" class="text-primary font-medium flex items-center gap-2 hover:gap-3 transition">
-              Read Article
-              <span class="material-symbols-rounded text-lg">arrow_forward</span>
-            </a>
+          </div>
+          <div class="trustpilot-stars mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            "We rescued Kalu and GuavaSure covers him without age limits. Their WhatsApp vet is incredible—answered my questions at 11 PM!"
+          </p>
+          <div class="mt-4 pt-4 border-t text-xs text-gray-600">
+            No Breed/Age Exclusions ✓
           </div>
         </div>
       </div>
-
-      <div class="text-center mt-12">
-        <a href="blog.html" class="btn-primary inline-flex items-center gap-2 reveal">
-          View All Articles
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </a>
+      
+      <!-- Trustpilot Badge -->
+      <div class="flex justify-center mt-16 reveal">
+        <div class="flex items-center gap-4 text-center">
+          <img src="./images/trustpilot-badge.png" alt="Trustpilot" class="h-20">
+          <div>
+            <div class="trustpilot-stars text-2xl font-bold">★★★★★</div>
+            <p class="text-gray-600 text-sm">4.1 out of 5 based on 2,300+ reviews</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section class="py-24 green-gradient relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-20 left-10 w-40 h-40 deco-blob float"></div>
-      <div class="absolute bottom-20 right-20 w-32 h-32 deco-blob float-slow"></div>
+  <!-- ===== DIGITAL PET ID ===== -->
+  <section id="pet-id" class="section-padding hero-gradient relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal-left">
+          <h2 class="text-4xl md:text-5xl font-bold text-light mb-6">Digital Pet ID</h2>
+          <p class="text-light/80 mb-8 text-lg">Never lose your pet. Digital ID + chip registration + location tracking.</p>
+          
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-rounded text-accent flex-shrink-0 mt-1">verified_user</span>
+              <div>
+                <h4 class="font-bold text-light">QR Code ID Card</h4>
+                <p class="text-light/70 text-sm">Instant vet access to your pet's medical history</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-rounded text-accent flex-shrink-0 mt-1">location_on</span>
+              <div>
+                <h4 class="font-bold text-light">GPS Tracking</h4>
+                <p class="text-light/70 text-sm">Real-time location if your pet goes missing</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-rounded text-accent flex-shrink-0 mt-1">dashboard</span>
+              <div>
+                <h4 class="font-bold text-light">Health Dashboard</h4>
+                <p class="text-light/70 text-sm">Track vaccinations, medications, vet visits</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-rounded text-accent flex-shrink-0 mt-1">local_hospital</span>
+              <div>
+                <h4 class="font-bold text-light">Emergency Alert</h4>
+                <p class="text-light/70 text-sm">Instant notification if pet is at a partner vet</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="#hero" class="btn-accent mt-8 inline-block">Activate Digital ID</a>
+        </div>
+        
+        <div class="reveal-right hidden md:block">
+          <div class="perspective-container">
+            <div class="img-3d">
+              <img src="./images/dalmatian.jpg" alt="Pet with digital ID" class="rounded-3xl">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h2 class="font-headline text-5xl sm:text-6xl font-bold text-white mb-6 reveal">
-        Your Pet is Counting on You
+  <!-- ===== FAQs ===== -->
+  <section id="faqs" class="section-padding bg-light relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+        <p class="text-lg text-gray-600">Got questions? We've got answers.</p>
+      </div>
+      
+      <div class="accordion-group space-y-3">
+        <!-- FAQ 1 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">What's the age limit for pet insurance?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              There's no age limit for coverage! We insure pets from 8 weeks old to senior ages (10+ years). Puppies get lower premiums, and we don't discriminate based on age. Just note that pre-existing conditions (before policy start) aren't covered.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">How quickly can I claim?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              You can claim after 30 days of your policy activation. Just upload your vet invoice via our app, and we'll approve & reimburse within 24 hours. For emergency surgeries, we process even faster—some claims approved in 4 hours.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">Do you cover breed-specific conditions?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              Yes! Golden Retrievers prone to hip dysplasia, Bulldogs with breathing issues, Dachshunds with back problems—all covered. We don't exclude any breeds or genetic conditions (except pre-existing ones before policy activation).
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">Can I use any vet?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              Absolutely. Use any AAHA-registered vet in India. We have 5,000+ partner clinics, but you're not limited to them. Go to your trusted vet, we'll reimburse. For cashless claims, use our partner network for instant billing settlement.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ 5 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">What about pre-existing conditions?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              Conditions existing before policy activation aren't covered in year 1. But here's the good news: if your pet is healthy through year 1 and the condition resolves, it may be covered from year 2 onward. Talk to our team about your specific case.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ 6 -->
+        <div class="reveal">
+          <button class="accordion-trigger w-full glass-card p-6 flex items-center justify-between hover:bg-white transition">
+            <h3 class="font-bold text-primary text-lg">How do I pay? Is EMI available?</h3>
+            <span class="material-symbols-rounded accordion-icon text-accent">expand_more</span>
+          </button>
+          <div class="accordion-content bg-muted/50 px-6 pb-6">
+            <p class="text-gray-700 leading-relaxed">
+              Pay via Razorpay (cards, UPI, netbanking) or direct bank transfer. Monthly plans auto-renew via your chosen method. EMI available on select credit cards (contact us for details). No extra charges for monthly plans—same premium either way.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Still have questions? -->
+      <div class="glass-card p-8 text-center mt-12 reveal">
+        <h3 class="text-2xl font-bold text-primary mb-4">Still have questions?</h3>
+        <p class="text-gray-700 mb-6">Our team is here to help. Chat with us on WhatsApp or call anytime.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="https://wa.me/919876543210" class="btn-accent">Message on WhatsApp</a>
+          <a href="tel:+919876543210" class="btn-white">Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="section-padding hero-gradient relative">
+    <div class="max-w-4xl mx-auto px-6 text-center reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-light mb-6">
+        Your Pet Deserves the Best
       </h2>
-      <p class="text-xl text-white/90 mb-12 reveal">
-        Give your furry friend the care and protection they deserve. Start your GuavaSure journey today.
+      <p class="text-xl text-light/80 mb-8 leading-relaxed">
+        Get comprehensive coverage starting at ₹299/month. Free quote in 2 minutes. No medical exam. Instant approval.
       </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
-        <a href="plans.html" class="bg-white text-secondary font-bold py-4 px-8 rounded-full hover:bg-surface transition inline-flex items-center justify-center gap-2">
-          Get Started Now
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </a>
-        <a href="https://wa.me/919876543210" target="_blank" class="bg-whatsapp text-white font-bold py-4 px-8 rounded-full hover:bg-green-600 transition inline-flex items-center justify-center gap-2">
-          <span class="material-symbols-rounded">chat</span>
-          Chat with Us
-        </a>
-      </div>
+      <a href="#hero" class="btn-accent btn-lg px-8 py-4 text-lg inline-block">
+        Get Your Quote Now
+      </a>
+      <p class="text-light/60 text-sm mt-4">✓ No spam • ✓ No hidden fees • ✓ 24/7 support</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-stone-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-12 mb-12">
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-primary text-light py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
         <!-- Brand -->
         <div>
-          <img src="images/logo.svg" alt="GuavaSure" class="h-10 w-auto mb-4">
-          <p class="text-sm text-white/70">
-            Premium pet wellness membership for every pet parent in India.
+          <div class="flex items-center gap-2 mb-4">
+            <img src="./images/guavasure-logo-white.svg" alt="GuavaSure" class="h-8">
+            <span class="font-bold text-lg">GuavaSure</span>
+          </div>
+          <p class="text-light/70 text-sm leading-relaxed">
+            Pet insurance that actually cares. Built by vets, for pet parents.
           </p>
         </div>
-
+        
         <!-- Product -->
         <div>
-          <h4 class="font-headline font-bold mb-4">Product</h4>
-          <ul class="space-y-2 text-sm text-white/70">
-            <li><a href="plans.html" class="hover:text-white transition">Plans & Pricing</a></li>
-            <li><a href="how-it-works.html" class="hover:text-white transition">How It Works</a></li>
-            <li><a href="claims.html" class="hover:text-white transition">Claims Process</a></li>
-            <li><a href="faq.html" class="hover:text-white transition">FAQs</a></li>
+          <h4 class="font-bold mb-4">Product</h4>
+          <ul class="space-y-2 text-light/70 text-sm">
+            <li><a href="#plans" class="hover:text-accent transition">Plans</a></li>
+            <li><a href="#pet-id" class="hover:text-accent transition">Digital Pet ID</a></li>
+            <li><a href="#how-it-works" class="hover:text-accent transition">How It Works</a></li>
+            <li><a href="#faqs" class="hover:text-accent transition">FAQs</a></li>
           </ul>
         </div>
-
+        
         <!-- Company -->
         <div>
-          <h4 class="font-headline font-bold mb-4">Company</h4>
-          <ul class="space-y-2 text-sm text-white/70">
-            <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
-            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
-            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
-            <li><a href="#" class="hover:text-white transition">Careers</a></li>
+          <h4 class="font-bold mb-4">Company</h4>
+          <ul class="space-y-2 text-light/70 text-sm">
+            <li><a href="#" class="hover:text-accent transition">About Us</a></li>
+            <li><a href="#" class="hover:text-accent transition">Blog</a></li>
+            <li><a href="#" class="hover:text-accent transition">Careers</a></li>
+            <li><a href="#" class="hover:text-accent transition">Contact</a></li>
           </ul>
         </div>
-
+        
         <!-- Legal -->
         <div>
-          <h4 class="font-headline font-bold mb-4">Legal</h4>
-          <ul class="space-y-2 text-sm text-white/70">
-            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-white transition">Cookie Policy</a></li>
-            <li><a href="#" class="hover:text-white transition">Disclaimer</a></li>
+          <h4 class="font-bold mb-4">Legal</h4>
+          <ul class="space-y-2 text-light/70 text-sm">
+            <li><a href="#" class="hover:text-accent transition">Terms</a></li>
+            <li><a href="#" class="hover:text-accent transition">Privacy</a></li>
+            <li><a href="#" class="hover:text-accent transition">Policy</a></li>
+            <li><a href="#" class="hover:text-accent transition">Claim Guide</a></li>
           </ul>
         </div>
       </div>
-
-      <div class="border-t border-white/10 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-white/70 text-center md:text-left max-w-md">
-            Insurance provided by Go Digit General Insurance Limited. GuavaSure is a wellness membership platform. © 2024 GuavaSure. All rights reserved.
-          </p>
-          <div class="flex gap-6">
-            <a href="https://www.instagram.com" target="_blank" class="text-white/70 hover:text-white transition">
-              <span class="material-symbols-rounded">favorite</span>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" class="text-white/70 hover:text-white transition">
-              <span class="material-symbols-rounded">people</span>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" class="text-white/70 hover:text-white transition">
-              <span class="material-symbols-rounded">info</span>
-            </a>
-          </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-light/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-light/60 text-sm">
+        <p>&copy; 2026 GuavaSure. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <span>Partner: <img src="./images/digit-logo.svg" alt="DIGIT" class="h-5 inline ml-2"></span>
+          <p>Insured by DIGIT Insurance Co. Ltd. | Reg. No. 160</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp FAB -->
-  <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-fab">
-    <span class="material-symbols-rounded text-white">chat</span>
+  <!-- ===== FLOATING ACTION BUTTON (WhatsApp) ===== -->
+  <a href="https://wa.me/919876543210" class="talk-fab">
+    <span class="material-symbols-rounded">whatsapp</span>
+    <span>Talk to Us</span>
   </a>
 
-  <!-- Auth Modal -->
-  <div id="authModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 z-50 flex items-center justify-center p-4" style="pointer-events: none;">
-    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 transform scale-95 transition-transform duration-300">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="font-headline text-2xl font-bold text-primary">Join GuavaSure</h2>
-        <button onclick="closeAuthModal()" class="text-stone-600 hover:text-stone-800">
-          <span class="material-symbols-rounded">close</span>
-        </button>
-      </div>
-
-      <!-- Google Sign-In Button -->
-      <div class="auth-btn-area mb-6">
-        <button class="w-full bg-white border border-stone-300 text-stone-700 font-bold py-3 px-4 rounded-lg hover:bg-stone-50 transition flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
-          Sign Up with Google
-        </button>
-      </div>
-
-      <div class="relative mb-6">
-        <div class="absolute inset-0 flex items-center">
-          <div class="w-full border-t border-stone-300"></div>
-        </div>
-        <div class="relative flex justify-center text-sm">
-          <span class="px-2 bg-white text-stone-600">Or continue with email</span>
-        </div>
-      </div>
-
-      <!-- Email/Password Form -->
-      <form class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-stone-700 mb-2">Email</label>
-          <input type="email" placeholder="your@email.com" class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:border-primary" required>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-stone-700 mb-2">Password</label>
-          <input type="password" placeholder="••••••••" class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:border-primary" required>
-        </div>
-        <button type="submit" class="btn-primary w-full">Create Account</button>
-      </form>
-
-      <p class="text-center text-sm text-stone-600 mt-6">
-        By signing up, you agree to our <a href="#" class="text-primary hover:underline">Terms of Service</a>
-      </p>
-    </div>
-  </div>
-
+  <!-- ===== SCRIPTS ===== -->
+  <script src="./scripts.js"></script>
+  
   <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+  
   <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBuzzjB_NKrZ3QqUnrvPvPqB1TF2rqNZFU",
-      authDomain: "insurance-ol.firebaseapp.com",
-      projectId: "insurance-ol",
-      storageBucket: "insurance-ol.firebasestorage.app",
-      messagingSenderId: "3843947583",
-      appId: "1:3843947583:web:efe8f67227b41d76fe0c8a",
-      measurementId: "G-3XN896P0K0"
-    });
-  </script>
-
-  <!-- Main Scripts -->
-  <script src="scripts.js"></script>
-
-  <!-- Auth Modal Functions -->
-  <script>
-    function openAuthModal() {
-      const modal = document.getElementById('authModal');
-      modal.style.opacity = '1';
-      modal.style.visibility = 'visible';
-      modal.style.pointerEvents = 'auto';
-      modal.querySelector('.rounded-3xl').style.transform = 'scale(1)';
-    }
-
-    function closeAuthModal() {
-      const modal = document.getElementById('authModal');
-      modal.style.opacity = '0';
-      modal.style.visibility = 'hidden';
-      modal.style.pointerEvents = 'none';
-      modal.querySelector('.rounded-3xl').style.transform = 'scale(0.95)';
-    }
-
-    // Close modal when clicking outside
-    document.getElementById('authModal').addEventListener('click', function(e) {
-      if (e.target === this) closeAuthModal();
-    });
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
-
-    // Parallax effect for hero image
-    document.addEventListener('mousemove', function(e) {
-      const parallaxElements = document.querySelectorAll('[data-parallax]');
-      parallaxElements.forEach(el => {
-        const parallaxValue = el.getAttribute('data-parallax');
-        const rect = el.getBoundingClientRect();
-        const x = (window.innerWidth / 2 - rect.left) * parallaxValue;
-        const y = (window.innerHeight / 2 - rect.top) * parallaxValue;
-        el.style.transform = `translate(${x}px, ${y}px)`;
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBcR_PLACEHOLDER_DO_NOT_USE",
+      authDomain: "guavasure-leads.firebaseapp.com",
+      projectId: "guavasure-leads",
+      storageBucket: "guavasure-leads.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abc123xyz789"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    
+    // Phone Signup Form Handler
+    const phoneForm = document.getElementById('phoneSignupForm');
+    if (phoneForm) {
+      phoneForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const phoneInput = document.getElementById('phoneInput');
+        const phone = '+91' + phoneInput.value;
+        const errEl = document.querySelector('.auth-error');
+        
+        try {
+          // Save to Firestore
+          await db.collection('leads').add({
+            phone: phone,
+            timestamp: new Date(),
+            source: 'website_hero',
+            status: 'new'
+          });
+          
+          // Show success
+          phoneForm.innerHTML = '<div class="text-green-500 font-semibold text-center py-3">Quote request sent! Check WhatsApp for details.</div>';
+          
+          // Optional: Send WhatsApp message
+          setTimeout(() => {
+            window.location.href = `https://wa.me/919876543210?text=Hi GuavaSure! I just requested a quote. My phone: ${phone}`;
+          }, 2000);
+        } catch (error) {
+          if (errEl) {
+            errEl.textContent = 'Error submitting quote. Try again or WhatsApp us.';
+            errEl.style.display = 'block';
+          }
+          console.error('Error:', error);
+        }
       });
-
-      // Mouse glow effect
-      const glow = document.querySelector('.mouse-glow');
-      if (glow) {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-      }
-    });
+    }
   </script>
-
+  
 </body>
 </html>
